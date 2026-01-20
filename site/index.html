@@ -93,7 +93,7 @@
       font-weight: 800;
     }
     p{ margin: 0 0 14px 0; color: var(--muted); }
-    .lead{ font-size: 18px; color: var(--muted); max-width: 62ch; }
+    .lead{ font-size: 18px; color: var(--muted); max-width: 62ch; margin-bottom: 24px; } /* CHANGE: more space under lead (pic 3) */
 
     /* Header / Nav */
     .header{
@@ -177,13 +177,13 @@
 
     /* Hero */
     .hero{
-      padding: 72px 0 88px 0;
+      padding: 72px 0 56px 0; /* CHANGE: reduce gap before "How we work" section (pic 4) */
       border-top: 0;
     }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 36px;
+      gap: 24px; /* CHANGE: spacing between hero columns (pic 1) */
       align-items:center;
     }
     .hero-card{
@@ -303,10 +303,11 @@
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
-      padding: 22px;
+      padding: 0; /* CHANGE: reduce block padding so image fills (pic 5) */
       box-shadow: var(--shadow);
+      overflow: hidden; /* CHANGE: keep rounded corners while image fills */
     }
-    .illustration svg{ width:100%; height:auto; display:block; }
+    .illustration img{ width:100%; height:auto; display:block; } /* CHANGE: ensure image fills block (pic 5) */
 
     /* What we do cards */
     .cards-3{
@@ -554,7 +555,7 @@
     }
     @media (max-width: 520px){
       .container{ width: min(var(--max), calc(100% - 32px)); }
-      .hero{ padding: 56px 0 72px 0; }
+      .hero{ padding: 56px 0 52px 0; } /* CHANGE: keep reduced gap on small screens too */
       .section{ padding: 72px 0; }
       .hero-visual{ min-height: 320px; padding: 22px; }
       .cta-box{ padding: 22px; }
@@ -616,8 +617,7 @@
           </p>
 
           <div class="hero-card" id="book">
-            <h3 style="margin-bottom:10px;">Book a Free Discovery Call</h3>
-            <p style="margin-bottom:14px;">
+            <p style="margin-bottom:14px; color: var(--text);">  <!-- CHANGE: remove heading + make this white (pic 2) -->
               Share your email and we’ll follow up with a time that suits you.
             </p>
 
@@ -695,7 +695,7 @@
 
         <div class="illustration" aria-label="Partnership illustration">
           <img src="antelope gembuk business handshake white.png" alt="Handshake illustration" loading="lazy">
-          <svg viewBox="0 0 560 320" fill="none" stroke="currentColor" stroke-width="2">
+        </div>
        
   </section>
 
@@ -1109,10 +1109,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
