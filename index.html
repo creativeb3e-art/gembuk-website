@@ -210,6 +210,19 @@
       margin-top: 12px;
     }
 
+    .hero{ padding: 64px 0 20px 0; }
+
+.hero-actions{
+  margin-top: 18px;
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items:center;
+}
+
+.highlights{ padding: 24px 0 56px 0; }
+
+
     /* Highlights (3 mini cards under hero) */
     .highlights{
       padding: 0 0 64px 0;
@@ -606,6 +619,12 @@
           <p class="lead">
             Save time and reduce costs with practical AI solutions for your business.
           </p>
+
+          <div class="hero-actions">
+  <a class="btn btn-primary" href="#book">Book a Free Discovery Call</a>
+  <a class="btn" href="#automations">See services</a>
+</div>
+
         </section>
       </div>
     </div>
@@ -655,20 +674,7 @@
         </div>
       </div>
 
-      <div class="hero-card" id="book">
-        <p style="margin-bottom:14px; color: var(--text);">
-          Share your email and we’ll follow up with a time that suits you.
-        </p>
-
-        <form class="email-form" action="#" method="post" aria-label="Discovery call form">
-          <label for="email" class="sr-only">Email address</label>
-          <input class="input" id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
-          <button class="btn btn-primary" type="submit">Book a Free Discovery Call</button>
-        </form>
-
-        <div class="helper">No pressure. Plain-English advice focused on quick wins and measurable outcomes.</div>
-      </div>
-    </div>
+     
   </section>
 
   <!-- =========================================================
