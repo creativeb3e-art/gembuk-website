@@ -54,7 +54,19 @@
       padding: 88px 0;
       border-top: 1px solid var(--line);
     }
-    
+
+.divider{ height: 1px; background: var(--line); margin: 0; }
+
+.section-divider{
+  padding: 0;            /* no extra space, just the line */
+  border-top: 0;         /* avoid double lines */
+}
+
+    /* tighter top padding for specific sections */
+    .section-tight{
+      padding-top: 56px;
+    }
+
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -173,54 +185,52 @@
     }
     .btn-primary:hover{ background: linear-gradient(180deg, var(--gold-2), var(--gold)); }
 
+    /* Blue CTA variant for gold section */
+    .btn-early{
+      background: #2563eb !important;
+      color: var(--gold) !important;
+      border-color: rgba(0,0,0,.10) !important;
+      box-shadow: 0 14px 30px rgba(37,99,235,.18) !important;
+    }
+
+/* Why Gembuk CTA button matches the section heading colour */
+.btn-early{
+  background: #1c2433 !important;    /* same as gold section headings */
+  color: var(--gold) !important;     /* readable + matches accent */
+  border-color: rgba(0,0,0,.12) !important;
+}
+.btn-early:hover{
+  background: #141b28 !important;    /* slightly darker on hover */
+}
+
+
     /* Hero */
     .hero{
       padding: 72px 0 28px 0; /* slightly tighter because highlights sit below */
       border-top: 0;
     }
- .hero-grid{
-  display: grid;
-  grid-template-columns: 0.75fr 1.25fr; /* pulls text closer to image */
-  gap: 32px;                            /* was 56px – too wide */
-  align-items: center;
-}
-.hero-content{
-  max-width: 640px;
-}
-
-          .hero-content{
-  margin-left: -8px;
-}
-    .hero-media{
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1fr; /* single column (antelope removed) */
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-content{
+      max-width: 860px;
+    }
+    .hero-title{
+      font-size: clamp(56px, 7vw, 84px); /* big AI */
+      line-height: 1.02;
+      margin: 8px 0 10px 0;
+      letter-spacing: -0.03em;
+    }
+    .hero-actions{
+      margin-top: 18px;
       display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
       align-items:center;
-      justify-content:center;
     }
-    .hero-media img{
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-    }
-
-   .hero-title{
-  font-size: clamp(30px, 3.2vw, 46px);
-  line-height: 1.18;
-}
-      margin-top: 12px;
-    }
-
-    .hero{ padding: 64px 0 20px 0; }
-
-.hero-actions{
-  margin-top: 18px;
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items:center;
-}
-
-.highlights{ padding: 24px 0 56px 0; }
-
 
     /* Highlights (3 mini cards under hero) */
     .highlights{
@@ -231,6 +241,7 @@
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+      margin-top: 22px;
     }
 
     .mini-card{
@@ -263,43 +274,6 @@
       color: var(--muted);
       font-size: 13px;
     }
-
-    /* Centre + shrink the hero CTA card (under highlights) */
-    .hero-card{
-      max-width: 720px;
-      margin: 28px auto 0;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-    .email-form{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-      width: 100%;
-    }
-    .input{
-      flex: 1 1 260px;
-      min-width: 240px;
-      padding: 13px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      outline: none;
-    }
-    .input::placeholder{ color: rgba(255,255,255,.55); }
-    .helper{
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--muted-2);
-    }
-.section.highlights{
-  border-top: 1px solid var(--line);
-}
 
     /* Partnership section */
     .two-col{
@@ -391,48 +365,6 @@
     .gold-section p{ color: rgba(28,36,51,.82); }
     .gold-section .eyebrow{ color: rgba(28,36,51,.78); }
     .gold-section .eyebrow:before{ background: rgba(28,36,51,.65); }
-    .features{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-    .feature{
-      background: rgba(255,255,255,.60);
-      border: 1px solid rgba(0,0,0,.08);
-      border-radius: 16px;
-      padding: 14px 14px;
-      box-shadow: 0 14px 26px rgba(0,0,0,.10);
-      min-height: 108px;
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
-    }
-    .feature .f-top{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-    .feature .f-icon{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: rgba(28,36,51,.10);
-      border: 1px solid rgba(28,36,51,.14);
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
-    }
-    .feature .f-icon svg{ width: 16px; height: 16px; opacity:.85; }
-    .feature strong{
-      font-weight: 900;
-      font-size: 14px;
-      line-height: 1.2;
-    }
-    .feature span{
-      font-size: 13px;
-      color: rgba(28,36,51,.78);
-    }
 
     /* Who we serve */
     .tiles{
@@ -518,6 +450,15 @@
     }
     .cta-box p{ max-width: 62ch; margin: 0; color: var(--muted); }
 
+    /* centred final CTA content */
+    .cta-box.centered{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .cta-box.centered p{ text-align: center; }
+
     /* Footer */
     footer{
       padding: 26px 0 34px 0;
@@ -550,11 +491,9 @@
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; text-align:center; }
-      .hero-media img{ max-width: 280px; margin: 0 auto; }
+      .hero-grid{ grid-template-columns: 1fr; text-align:left; }
       .two-col{ grid-template-columns: 1fr; }
       .cards-3{ grid-template-columns: 1fr; }
-      .features{ grid-template-columns: repeat(2, 1fr); }
       .tiles{ grid-template-columns: 1fr; }
       .highlights-grid{ grid-template-columns: 1fr; }
       .partner-logo{ width: 160px; }
@@ -594,7 +533,7 @@
           <a href="#training">AI Training</a>
         </nav>
 
-        <a class="btn btn-primary" href="#book">Book a Free Discovery Call</a>
+        <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
       </div>
     </div>
   </header>
@@ -605,86 +544,87 @@
   <main id="home" class="hero">
     <div class="container">
       <div class="hero-grid">
-        <!-- Left column: image -->
-        <div class="hero-media">
-          <img src="Antelope-head-white.png" alt="Gembuk AI Antelope">
-        </div>
-
-        <!-- Right column: text -->
         <section class="hero-content" aria-label="Hero content">
           <span class="eyebrow">Bespoke AI Solutions</span>
 
-          <h1 class="hero-title">
-            We automate repetitive tasks, build AI assistants, and train your team to work more efficiently — without technical complexity.
-          </h1>
+          <h1 class="hero-title">AI</h1>
 
           <p class="lead">
-            Save time and reduce costs with practical AI solutions for your business.
+            We automate repetitive tasks, build AI virtual assistants and offer team training to work more efficiently.
           </p>
 
           <div class="hero-actions">
-  <a class="btn btn-primary" href="#book">Book a Free Discovery Call</a>
-  <a class="btn" href="#automations">See services</a>
-</div>
-
+            <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
+            <a class="btn" href="#automations">See services</a>
+          </div>
         </section>
       </div>
     </div>
   </main>
 
-  
-
-    <!-- =========================================================
-    WHAT YOU GET
-  ========================================================== -->
-<section class="section highlights" aria-label="What you get">
+<!-- =========================================================
+  DIVIDER (page break under Hero)
+========================================================== -->
+<section class="section section-divider" aria-hidden="true">
   <div class="container">
-    <span class="eyebrow">What you get</span>
-    <h2>Built for clarity, speed, and trust</h2>
-
-    <div class="highlights-grid">
-  <div class="mini-card">
-    <div class="icon-pill" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 6v6l4 2" />
-        <circle cx="12" cy="12" r="9" />
-      </svg>
-    </div>
-    <div>
-      <div class="mini-title">Time saved</div>
-      <p class="mini-text">Reduce manual admin so your team can focus on higher-value work.</p>
-    </div>
-  </div>
-
-  <div class="mini-card">
-    <div class="icon-pill" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 7l-8 10L4 7" />
-      </svg>
-    </div>
-    <div>
-      <div class="mini-title">Clear outcomes</div>
-      <p class="mini-text">Fast delivery with simple, trackable results.</p>
-    </div>
-  </div>
-
-  <div class="mini-card">
-    <div class="icon-pill" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 3l8 4v6c0 5-3 8-8 8s-8-3-8-8V7l8-4z" />
-      </svg>
-    </div>
-    <div>
-      <div class="mini-title">Secure by design</div>
-      <p class="mini-text">Privacy-focused, with sensible access controls and good practice.</p>
-    </div>
+    <div class="divider"></div>
   </div>
 </section>
 
+
   <!-- =========================================================
-    TRUST / PARTNERSHIP
+    WHAT YOU GET
   ========================================================== -->
-  <section class="section" aria-label="Trust and partnership">
+  <section class="section" aria-label="What you get">
+    <div class="container">
+      <span class="eyebrow">What you get</span>
+      <h2>Built for clarity, speed, and trust</h2>
+
+      <div class="highlights-grid">
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 6v6l4 2" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Save time</div>
+            <p class="mini-text">Reduce manual, repetitive tasks.</p>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 7l-8 10L4 7" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Consistent results</div>
+            <p class="mini-text">Remove human error, add intelligence.</p>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3l8 4v6c0 5-3 8-8 8s-8-3-8-8V7l8-4z" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Clear outcomes</div>
+            <p class="mini-text">Fast delivery with simple, trackable results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    TRUST / PARTNERSHIP (How we work)
+  ========================================================== -->
+  <section class="section section-tight" aria-label="Trust and partnership">
     <div class="container">
       <div class="two-col">
         <div>
@@ -710,7 +650,7 @@
   <!-- =========================================================
     WHAT WE DO
   ========================================================== -->
-  <section class="section" aria-label="What we do">
+  <section class="section section-tight" aria-label="What we do">
     <div class="container">
       <span class="eyebrow">Services</span>
       <h2>What we do</h2>
@@ -785,12 +725,11 @@
           </div>
 
           <p>Practical, plain-English AI training for teams and leaders.</p>
-          <p>Learn how to use AI safely and effectively to improve productivity across your organisation.</p>
+          <p>Learn how AI can help you improve your business, how to use it effectively, and safely.</p>
 
           <ul class="list">
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Staff AI training</span></li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Leadership AI workshops</span></li>
-            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Real business use cases</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Personalised AI training and guidance</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Business workshops</span></li>
             <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Ongoing guidance and support</span></li>
           </ul>
         </article>
@@ -799,78 +738,36 @@
   </section>
 
   <!-- =========================================================
-    WHY CHOOSE GEMBUK (GOLD)
+    WHY CHOOSE GEMBUK (GOLD) -> Testimonials + early adopter
   ========================================================== -->
   <section class="section gold-section" aria-label="Why choose Gembuk">
     <div class="container">
       <span class="eyebrow">Why Gembuk</span>
       <h2>Why organisations choose Gembuk</h2>
-      <p class="lead">Calm, practical delivery with a focus on security, simplicity, and business results.</p>
+      <p class="lead">Be an early adopter — pay early adopter fees for 12 months.</p>
 
-      <div class="features" role="list">
-        <div class="feature" role="listitem">
-          <div class="f-top">
-            <div class="f-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7l3-7z" />
-              </svg>
-            </div>
-            <strong>Practical, business-first AI</strong>
-          </div>
-          <span>Built around outcomes, not complexity.</span>
-        </div>
+      <div class="cards-3" role="list" style="margin-top:18px;">
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
 
-        <div class="feature" role="listitem">
-          <div class="f-top">
-            <div class="f-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 7h16" />
-                <path d="M7 4v16" />
-                <path d="M17 4v16" />
-              </svg>
-            </div>
-            <strong>Designed for real workflows</strong>
-          </div>
-          <span>Fits how teams actually work.</span>
-        </div>
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
 
-        <div class="feature" role="listitem">
-          <div class="f-top">
-            <div class="f-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0z" />
-                <path d="M12 7v5l3 2" />
-              </svg>
-            </div>
-            <strong>Fast delivery, clear outcomes</strong>
-          </div>
-          <span>Short cycles with visible progress.</span>
-        </div>
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
+      </div>
 
-        <div class="feature" role="listitem">
-          <div class="f-top">
-            <div class="f-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 1v22" />
-                <path d="M17 5H9a3 3 0 0 0 0 6h6a3 3 0 0 1 0 6H6" />
-              </svg>
-            </div>
-            <strong>Transparent pricing</strong>
-          </div>
-          <span>No surprises. Clear scope and options.</span>
-        </div>
+      <div style="margin-top:20px;">
+  <a class="btn btn-early" href="mailto:Hello@gembuk.com?subject=Early%20adopter%20enquiry">
+  Enquire about early adopter fees
+</a>
 
-        <div class="feature" role="listitem">
-          <div class="f-top">
-            <div class="f-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 3l8 4v6c0 5-3 8-8 8s-8-3-8-8V7l8-4z" />
-              </svg>
-            </div>
-            <strong>Secure and privacy-focused</strong>
-          </div>
-          <span>Sensible controls and safe usage.</span>
-        </div>
       </div>
     </div>
   </section>
@@ -882,12 +779,14 @@
     <div class="container">
       <span class="eyebrow">Industries</span>
       <h2>Who we serve</h2>
-      <p class="lead">Built for SMEs, councils, professional firms, and service organisations that want practical AI without the noise.</p>
+      <p class="lead">
+        Built for organisations that want practical AI without the noise.
+      </p>
 
       <div class="tiles" role="list">
         <div class="tile" role="listitem" tabindex="0" aria-label="Councils">
           <strong>Councils</strong>
-          <span class="arrow">Find out more
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -897,7 +796,7 @@
 
         <div class="tile" role="listitem" tabindex="0" aria-label="SMEs">
           <strong>SMEs</strong>
-          <span class="arrow">Find out more
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -907,7 +806,27 @@
 
         <div class="tile" role="listitem" tabindex="0" aria-label="Law Firms">
           <strong>Law Firms</strong>
-          <span class="arrow">Find out more
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="Dentists">
+          <strong>Dentists</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="GP Clinics">
+          <strong>GP Clinics</strong>
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -917,7 +836,7 @@
 
         <div class="tile" role="listitem" tabindex="0" aria-label="Accounting Firms">
           <strong>Accounting Firms</strong>
-          <span class="arrow">Find out more
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -925,9 +844,9 @@
           </span>
         </div>
 
-        <div class="tile" role="listitem" tabindex="0" aria-label="Industry and Operations">
-          <strong>Industry &amp; Operations</strong>
-          <span class="arrow">Find out more
+        <div class="tile" role="listitem" tabindex="0" aria-label="Trades">
+          <strong>Trades</strong>
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -935,9 +854,9 @@
           </span>
         </div>
 
-        <div class="tile" role="listitem" tabindex="0" aria-label="IT and MSP Partners">
-          <strong>IT &amp; MSP Partners</strong>
-          <span class="arrow">Find out more
+        <div class="tile" role="listitem" tabindex="0" aria-label="IT and MSP partnerships">
+          <strong>IT &amp; MSP partnerships</strong>
+          <span class="arrow">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M5 12h12" />
               <path d="M13 6l6 6-6 6" />
@@ -948,34 +867,20 @@
     </div>
   </section>
 
+ 
   <!-- =========================================================
-    PARTNERS (WHITE BACKGROUND)
-  ========================================================== -->
-  <section class="section partners" aria-label="Partners">
-    <div class="container">
-      <span class="eyebrow">Ecosystem</span>
-      <h2>Our partners</h2>
-      <p class="lead">We work with trusted platforms to deliver reliable solutions.</p>
-
-      <div class="partner-row" aria-label="Partner logos">
-        <div class="partner-logo" aria-label="Microsoft logo placeholder">Microsoft</div>
-        <div class="partner-logo" aria-label="Airtable logo placeholder">Airtable</div>
-        <div class="partner-logo" aria-label="Softr logo placeholder">Softr</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-    FINAL CTA
+    FINAL CTA (centred)
   ========================================================== -->
   <section class="final-cta" aria-label="Final call to action">
     <div class="container">
-      <div class="cta-box">
+      <div class="cta-box centered">
         <div>
           <h2 style="margin-bottom:10px;">Ready to automate your work, deploy AI agents, or upskill your team?</h2>
-          <p>Book a free discovery call and we’ll map the quickest path to real time savings and better consistency.</p>
+          <p>
+            Book a free discovery call and we’ll map the quickest path to real-time savings and better consistency.
+          </p>
         </div>
-        <a class="btn btn-primary" href="#book">Book a Free Discovery Call</a>
+        <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
       </div>
     </div>
   </section>
@@ -991,7 +896,7 @@
             <span style="font-weight:900;">gembuk</span>
           </div>
           <div style="margin-top:10px;">
-            <a href="mailto:hello@gembuk.com">hello@gembuk.com</a>
+            <a href="mailto:Hello@gembuk.com">Hello@gembuk.com</a>
           </div>
         </div>
 
