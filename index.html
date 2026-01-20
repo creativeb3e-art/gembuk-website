@@ -179,12 +179,16 @@
       padding: 72px 0 28px 0; /* slightly tighter because highlights sit below */
       border-top: 0;
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 0.9fr 1.1fr; /* image left, content right */
-      gap: 56px;
-      align-items:center;
-    }
+ .hero-grid{
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr; /* pulls text closer to image */
+  gap: 32px;                            /* was 56px – too wide */
+  align-items: center;
+}
+.hero-content{
+  max-width: 640px;
+}
+
 
     .hero-media{
       display:flex;
@@ -197,9 +201,10 @@
       height: auto;
     }
 
-    .hero-title{
-      font-size: clamp(26px, 3.1vw, 44px); /* smaller to suit long sentence */
-      line-height: 1.15;
+   .hero-title{
+  font-size: clamp(30px, 3.2vw, 46px);
+  line-height: 1.18;
+}
       margin-top: 12px;
     }
 
@@ -591,6 +596,11 @@
         <!-- Right column: text -->
         <section class="hero-content" aria-label="Hero content">
           <span class="eyebrow">Bespoke AI Solutions</span>
+
+          .hero-content{
+  margin-left: -12px;
+}
+
 
           <h1 class="hero-title">
             We automate repetitive tasks, build AI assistants, and train your team to work more efficiently — without technical complexity.
