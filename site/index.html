@@ -604,17 +604,21 @@
 
     .hero-card{ margin-top: 32px; }
 
-    .hero section {
-  text-align: centre;
+/* Centre the hero text column */
+.hero .hero-grid > section{
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: centre;
+  align-items: center;
 }
 
-    .hero h1,
-.hero .lead {
-  max-width: 18ch;
+/* Keep readable line lengths when centred */
+.hero .hero-grid > section .eyebrow,
+.hero .hero-grid > section h1,
+.hero .hero-grid > section .lead{
+  max-width: 26ch;
 }
+
 
 
 
@@ -1155,6 +1159,7 @@
 
 </body>
 </html>
+
 
 
 
