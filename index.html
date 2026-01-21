@@ -209,10 +209,10 @@
       padding: 72px 0 28px 0; /* slightly tighter because highlights sit below */
       border-top: 0;
     }
-   .hero-grid{
+.hero-grid{
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+  grid-template-columns: 1fr; /* single column */
+  justify-items: start;       /* LEFT align instead of centre */
 }
 
     .hero-content{
@@ -231,9 +231,8 @@
       flex-wrap: wrap;
       align-items:center;
     }
-
-    .hero-content{
-  text-align: center;
+.hero-content{
+  text-align: left;
 }
 
 .hero-actions{
