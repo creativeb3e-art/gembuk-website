@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gembuk — AI automations, AI agents, and practical AI training designed to save time, reduce costs, and improve productivity." />
+  <title>Gembuk | Simple. Smart. AI-Powered.</title>
+
+  <style>
+    /* =========================================================
+      Gembuk – Single-page marketing site
+      Clean HTML + CSS (no frameworks)
+      Colour scheme: dark navy/charcoal + gold accents + white text
+    ========================================================= */
+
+    :root{
+      --bg: #0b111b;            /* deep navy */
+      --bg-2:#0f1726;           /* slightly lighter */
+      --panel:#121c2e;          /* card background */
+      --panel-2:#0e1626;        /* subtle variant */
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.76);
+      --muted-2:rgba(255,255,255,.62);
+      --line:rgba(255,255,255,.12);
+      --gold:#f3c84b;           /* accent */
+      --gold-2:#f7d66a;         /* lighter accent */
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(243,200,75,.12), transparent 55%),
+                  radial-gradient(900px 600px at 85% 10%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section{
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+.divider{ height: 1px; background: var(--line); margin: 0; }
+
+.section-divider{
+  padding: 0;            /* no extra space, just the line */
+  border-top: 0;         /* avoid double lines */
+}
+
+    /* tighter top padding for specific sections */
+    .section-tight{
+      padding-top: 56px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .eyebrow:before{
+      content:"";
+      width: 22px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 999px;
+      opacity: .95;
+    }
+
+    h1,h2,h3{
+      margin:0 0 14px 0;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+    h1{
+      font-size: clamp(40px, 5.2vw, 64px);
+      font-weight: 800;
+    }
+    h2{
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 800;
+    }
+    h3{
+      font-size: 18px;
+      font-weight: 800;
+    }
+    p{ margin: 0 0 14px 0; color: var(--muted); }
+    .lead{ font-size: 18px; color: var(--muted); max-width: 62ch; margin-bottom: 24px; }
+
+    /* Visually hidden utility */
+    .sr-only{
+      position:absolute !important;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+
+    /* Header / Nav */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11,17,27,.74);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      font-size: 20px;
+      text-transform: lowercase;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      color: var(--muted);
+      font-size: 14px;
+      padding: 10px 10px;
+      border-radius: 10px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav a:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      transition: transform .12s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18); }
+    .btn:active{ transform: translateY(0px); }
+
+    .btn-primary{
+      background: linear-gradient(180deg, var(--gold), var(--gold-2));
+      color: #1c2433;
+      border-color: rgba(0,0,0,.08);
+      box-shadow: 0 14px 30px rgba(243,200,75,.18);
+    }
+    .btn-primary:hover{ background: linear-gradient(180deg, var(--gold-2), var(--gold)); }
+
+    /* Blue CTA variant for gold section */
+    .btn-early{
+      background: #2563eb !important;
+      color: var(--gold) !important;
+      border-color: rgba(0,0,0,.10) !important;
+      box-shadow: 0 14px 30px rgba(37,99,235,.18) !important;
+    }
+
+/* Why Gembuk CTA button matches the section heading colour */
+.btn-early{
+  background: #1c2433 !important;    /* same as gold section headings */
+  color: var(--gold) !important;     /* readable + matches accent */
+  border-color: rgba(0,0,0,.12) !important;
+}
+.btn-early:hover{
+  background: #141b28 !important;    /* slightly darker on hover */
+}
+
+
+    /* Hero */
+    .hero{
+      padding: 72px 0 28px 0; /* slightly tighter because highlights sit below */
+      border-top: 0;
+    }
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1fr; /* single column */
+  justify-items: start;       /* LEFT align instead of centre */
+}
+
+    .hero-content{
+      max-width: 860px;
+    }
+    .hero-title{
+      font-size: clamp(56px, 7vw, 84px); /* big AI */
+      line-height: 1.02;
+      margin: 8px 0 10px 0;
+      letter-spacing: -0.03em;
+    }
+    .hero-actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+.hero-content{
+  text-align: left;
+}
+
+.hero-actions{
+  justify-content: flex-start;
+}
+
+    .hero-title{
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 1.15;
+}
+
+
+    /* Highlights (3 mini cards under hero) */
+    .highlights{
+      padding: 0 0 64px 0;
+      border-top: 0;
+    }
+    .highlights-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .mini-card{
+      background: rgba(11,17,27,.55);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 14px 14px;
+      display:flex;
+      align-items:flex-start;
+      gap: 12px;
+    }
+    .icon-pill{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: rgba(243,200,75,.16);
+      border: 1px solid rgba(243,200,75,.26);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+    }
+    .icon-pill svg{ width: 18px; height: 18px; opacity: .95; }
+    .mini-title{
+      font-weight: 900;
+      font-size: 14px;
+      margin: 0 0 4px 0;
+    }
+    .mini-text{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Partnership section */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 56px;
+      align-items:center;
+    }
+    .illustration{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 0;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .illustration img{ width:100%; height:auto; display:block; }
+
+    /* What we do cards */
+    .cards-3{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.25);
+      height: 100%;
+    }
+    .card .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(243,200,75,.26);
+      background: rgba(243,200,75,.12);
+      color: rgba(255,255,255,.90);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .card p{ color: var(--muted); }
+    .list{
+      margin: 14px 0 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .list li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tick{
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: rgba(243,200,75,.16);
+      border: 1px solid rgba(243,200,75,.28);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .tick svg{ width: 12px; height: 12px; }
+
+    /* Gold section */
+    .gold-section{
+      background: linear-gradient(180deg, var(--gold), var(--gold-2));
+      color: #1c2433;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .gold-section p{ color: rgba(28,36,51,.82); }
+    .gold-section .eyebrow{ color: rgba(28,36,51,.78); }
+    .gold-section .eyebrow:before{ background: rgba(28,36,51,.65); }
+
+    /* Who we serve */
+    .tiles{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .tile{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: transform .15s ease, border-color .2s ease, background .2s ease;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      min-height: 70px;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(243,200,75,.22);
+    }
+    .tile strong{ font-weight: 900; }
+    .tile .arrow{
+      color: rgba(255,255,255,.75);
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .tile .arrow svg{ width: 16px; height: 16px; }
+
+       /* Final CTA */
+    .final-cta{
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 76px 0;
+    }
+    .cta-box{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+    .cta-box p{ max-width: 62ch; margin: 0; color: var(--muted); }
+
+    /* centred final CTA content */
+    .cta-box.centered{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .cta-box.centered p{ text-align: center; }
+
+    .final-cta,
+.final-cta h2,
+.final-cta p {
+  text-align: center;
+}
+
+    .final-cta .cta-box p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+    /* Footer */
+    footer{
+      padding: 26px 0 34px 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-links a:hover{
+      color: var(--text);
+      border-bottom-color: rgba(243,200,75,.45);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; text-align:left; }
+      .two-col{ grid-template-columns: 1fr; }
+      .cards-3{ grid-template-columns: 1fr; }
+      .tiles{ grid-template-columns: 1fr; }
+      .highlights-grid{ grid-template-columns: 1fr; }
+      .partner-logo{ width: 160px; }
+      .nav{ display:none; } /* keep simple; mobile uses CTA only */
+    }
+    @media (max-width: 520px){
+      .container{ width: min(var(--max), calc(100% - 32px)); }
+      .hero{ padding: 56px 0 24px 0; }
+      .section{ padding: 72px 0; }
+      .cta-box{ padding: 22px; }
+      .brand{ font-size: 18px; }
+    }
+
+    /* Accessibility */
+    :focus-visible{
+      outline: 3px solid rgba(243,200,75,.55);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+  </style>
+<head>
+  <!-- other meta tags, title, styles, etc -->
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body>
+
+  <!-- =========================================================
+    HEADER / NAV (sticky)
+  ========================================================== -->
+  <header class="header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a class="brand" href="#home" aria-label="Gembuk home">gembuk</a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#automations">AI Automations</a>
+          <a href="#agents">AI Agents</a>
+          <a href="#training">AI Training</a>
+        </nav>
+
+        <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+    HERO
+  ========================================================== -->
+  <main id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <section class="hero-content" aria-label="Hero content">
+          <span class="eyebrow">Bespoke AI Solutions</span>
+
+          <h3 class="hero-title">We automate repetitive tasks, build AI virtual assistants and offer team training to work more efficiently.</h3>
+
+                   <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
+            <a class="btn" href="#automations">See services</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+<!-- =========================================================
+  DIVIDER (page break under Hero)
+========================================================== -->
+<section class="section section-divider" aria-hidden="true">
+  <div class="container">
+    <div class="divider"></div>
+  </div>
+</section>
+
+
+  <!-- =========================================================
+    WHAT YOU GET
+  ========================================================== -->
+  <section class="section" aria-label="What you get">
+    <div class="container">
+      <span class="eyebrow">What you get</span>
+      <h2>Built for clarity, speed, and trust</h2>
+
+      <div class="highlights-grid">
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 6v6l4 2" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Save time</div>
+            <p class="mini-text">Reduce manual, repetitive tasks.</p>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 7l-8 10L4 7" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Consistent results</div>
+            <p class="mini-text">Remove human error, add intelligence.</p>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3l8 4v6c0 5-3 8-8 8s-8-3-8-8V7l8-4z" />
+            </svg>
+          </div>
+          <div>
+            <div class="mini-title">Clear outcomes</div>
+            <p class="mini-text">Fast delivery with simple, trackable results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    TRUST / PARTNERSHIP (How we work)
+  ========================================================== -->
+  <section class="section section-tight" aria-label="Trust and partnership">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="eyebrow">How we work</span>
+          <h2>Built for long-term partnerships</h2>
+          <p>
+            Gembuk helps organisations use AI in practical, measurable ways.
+            We focus on efficiency, simplicity, and real business outcomes — not hype or complexity.
+          </p>
+          <p>
+            Whether you want to automate repetitive work, deploy AI agents, or train your team,
+            we work alongside you from strategy to delivery.
+          </p>
+        </div>
+
+        <div class="illustration" aria-label="Partnership illustration">
+          <img src="antelope-gembuk-business-handshake-white.png" alt="Handshake illustration" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    WHAT WE DO
+  ========================================================== -->
+  <section class="section section-tight" aria-label="What we do">
+    <div class="container">
+      <span class="eyebrow">Services</span>
+      <h2>What we do</h2>
+      <p class="lead">
+        Three simple ways we help teams work faster, reduce cost, and improve consistency.
+      </p>
+
+      <div class="cards-3">
+        <!-- AI Automations -->
+        <article class="card" id="automations">
+          <div class="top">
+            <span class="badge">AI Automations</span>
+            <span class="icon-pill" aria-hidden="true" style="width:40px;height:40px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7h10" />
+                <path d="M4 12h16" />
+                <path d="M4 17h12" />
+                <path d="M18 6v12" />
+              </svg>
+            </span>
+          </div>
+
+          <p>We identify repetitive, manual processes and replace them with simple AI-powered automations.</p>
+          <p>Save time, reduce errors, and free your team to focus on higher-value work.</p>
+
+          <ul class="list">
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Process automation</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>System integrations</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>AI-driven workflows</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Fast delivery with clear outcomes</span></li>
+          </ul>
+        </article>
+
+        <!-- AI Agents -->
+        <article class="card" id="agents">
+          <div class="top">
+            <span class="badge">AI Agents</span>
+            <span class="icon-pill" aria-hidden="true" style="width:40px;height:40px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3a7 7 0 0 0-7 7v3a4 4 0 0 0 4 4h1" />
+                <path d="M12 3a7 7 0 0 1 7 7v3a4 4 0 0 1-4 4h-1" />
+                <path d="M9 21h6" />
+                <path d="M10 17v4" />
+                <path d="M14 17v4" />
+              </svg>
+            </span>
+          </div>
+
+          <p>Custom AI agents built for your business — including voice agents, chatbots, and internal assistants.</p>
+          <p>Your AI agents work 24/7 to support staff, customers, and operations.</p>
+
+          <ul class="list">
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Voice AI agents</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Website and internal chatbots</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Custom business agents</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Secure and role-based access</span></li>
+          </ul>
+        </article>
+
+        <!-- AI Training -->
+        <article class="card" id="training">
+          <div class="top">
+            <span class="badge">AI Training</span>
+            <span class="icon-pill" aria-hidden="true" style="width:40px;height:40px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16" />
+                <path d="M4 10h10" />
+                <path d="M4 14h16" />
+                <path d="M4 18h12" />
+              </svg>
+            </span>
+          </div>
+
+          <p>Practical, plain-English AI training for teams and leaders.</p>
+          <p>Learn how AI can help you improve your business, how to use it effectively, and safely.</p>
+
+          <ul class="list">
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Personalised AI training and guidance</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Business workshops</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" /></svg></span><span>Ongoing guidance and support</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    WHY CHOOSE GEMBUK (GOLD) -> Testimonials + early adopter
+  ========================================================== -->
+  <section class="section gold-section" aria-label="Why choose Gembuk">
+    <div class="container">
+      <span class="eyebrow">Why Choose Gembuk</span>
+      <h2>Why organisations choose Gembuk</h2>
+      <p class="lead">Be an early adopter — pay early adopter fees for 12 months.</p>
+
+      <div class="cards-3" role="list" style="margin-top:18px;">
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
+
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
+
+        <article class="card" role="listitem" style="background: rgba(255,255,255,.70); border-color: rgba(0,0,0,.10); box-shadow: 0 14px 26px rgba(0,0,0,.10);">
+          <h3 style="color:#1c2433;">Testimonial placeholder</h3>
+          <p style="color: rgba(28,36,51,.82);">Short quote goes here.</p>
+        </article>
+      </div>
+
+      <div style="margin-top:20px;">
+  <a class="btn btn-early" href="mailto:Hello@gembuk.com?subject=Early%20adopter%20enquiry">
+  Enquire about early adopter fees
+</a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    WHO WE SERVE
+  ========================================================== -->
+  <section class="section" aria-label="Who we serve">
+    <div class="container">
+      <span class="eyebrow">Industries</span>
+      <h2>Who we serve</h2>
+      <p class="lead">
+        Built for organisations that want practical AI without the noise.
+      </p>
+
+      <div class="tiles" role="list">
+        <div class="tile" role="listitem" tabindex="0" aria-label="Councils">
+          <strong>Councils</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="SMEs">
+          <strong>SMEs</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="Law Firms">
+          <strong>Law Firms</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="Dentists">
+          <strong>Dentists</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="GP Clinics">
+          <strong>GP Clinics</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="Accounting Firms">
+          <strong>Accounting Firms</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="Trades">
+          <strong>Trades</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="tile" role="listitem" tabindex="0" aria-label="IT and MSP partnerships">
+          <strong>IT &amp; MSP partnerships</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- =========================================================
+    FINAL CTA (centred)
+  ========================================================== -->
+  <section class="final-cta" aria-label="Final call to action">
+    <div class="container">
+      <div class="cta-box centered">
+        <div>
+          <h2 style="margin-bottom:10px;">Ready to automate your work, deploy AI agents, or upskill your team?</h2>
+          <p>
+            Book a free discovery call and we’ll map the quickest path to real-time savings and better consistency.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+    FOOTER
+  ========================================================== -->
+  <footer aria-label="Footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <div class="brand" style="gap:10px;">
+            <span style="font-weight:900;">gembuk</span>
+          </div>
+          <div style="margin-top:10px;">
+            <a href="mailto:Hello@gembuk.com">Hello@gembuk.com</a>
+          </div>
+        </div>
+
+        <div class="footer-links" aria-label="Footer links">
+          <a href="#home">Home</a>
+          <a href="#automations">AI Automations</a>
+          <a href="#agents">AI Agents</a>
+          <a href="#training">AI Training</a>
+          <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
