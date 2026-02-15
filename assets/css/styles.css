@@ -1,10 +1,3 @@
- <style>
-    /* =========================================================
-      Gembuk – Single-page marketing site
-      Clean HTML + CSS (no frameworks)
-      Colour scheme: dark navy/charcoal + gold accents + white text
-    ========================================================= */
-
     :root{
       --bg: #0b111b;            /* deep navy */
       --bg-2:#0f1726;           /* slightly lighter */
@@ -502,4 +495,4 @@
       outline-offset: 3px;
       border-radius: 10px;
     }
-  </style>
+  
