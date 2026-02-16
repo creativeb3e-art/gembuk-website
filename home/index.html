@@ -6,13 +6,14 @@
   <meta name="description" content="Gembuk — AI automations, AI agents, and practical AI training designed to save time, reduce costs, and improve productivity." />
   <title>Gembuk | Simple. Smart. AI-Powered.</title>
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <!-- other meta tags, title, styles, etc -->
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Home CSS (per your repo structure) -->
+  <link rel="stylesheet" href="/home/styles.css">
+
+  <!-- Favicons (moved into /home/assets/) -->
+  <link rel="icon" href="/home/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/home/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/home/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/home/assets/apple-touch-icon.png">
 </head>
 
 <body>
@@ -31,7 +32,6 @@
           <a href="#agents">AI Agents</a>
           <a href="#training">AI Training</a>
           <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
-
         </nav>
 
         <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
@@ -50,7 +50,7 @@
 
           <h3 class="hero-title">We automate repetitive tasks, build AI virtual assistants and offer team training to work more efficiently.</h3>
 
-                   <div class="hero-actions">
+          <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:Hello@gembuk.com?subject=Discovery%20Call%20Request">Book a Free Discovery Call</a>
             <a class="btn" href="#automations">See services</a>
           </div>
@@ -59,15 +59,14 @@
     </div>
   </main>
 
-<!-- =========================================================
-  DIVIDER (page break under Hero)
-========================================================== -->
-<section class="section section-divider" aria-hidden="true">
-  <div class="container">
-    <div class="divider"></div>
-  </div>
-</section>
-
+  <!-- =========================================================
+    DIVIDER (page break under Hero)
+  ========================================================== -->
+  <section class="section section-divider" aria-hidden="true">
+    <div class="container">
+      <div class="divider"></div>
+    </div>
+  </section>
 
   <!-- =========================================================
     WHAT YOU GET
@@ -138,7 +137,7 @@
         </div>
 
         <div class="illustration" aria-label="Partnership illustration">
-          <img src="antelope-gembuk-business-handshake-white.png" alt="Handshake illustration" loading="lazy">
+          <img src="/home/assets/antelope-gembuk-business-handshake-white.png" alt="Handshake illustration" loading="lazy">
         </div>
       </div>
     </div>
@@ -235,7 +234,7 @@
   </section>
 
   <!-- =========================================================
-    WHY CHOOSE GEMBUK (GOLD) -> Testimonials + early adopter
+    WHY CHOOSE GEMBUK (GOLD)
   ========================================================== -->
   <section class="section gold-section" aria-label="Why choose Gembuk">
     <div class="container">
@@ -261,10 +260,9 @@
       </div>
 
       <div style="margin-top:20px;">
-  <a class="btn btn-early" href="mailto:Hello@gembuk.com?subject=Early%20adopter%20enquiry">
-  Enquire about early adopter fees
-</a>
-
+        <a class="btn btn-early" href="mailto:Hello@gembuk.com?subject=Early%20adopter%20enquiry">
+          Enquire about early adopter fees
+        </a>
       </div>
     </div>
   </section>
@@ -311,15 +309,16 @@
           </span>
         </div>
 
-<a href="/ai-receptionist-for-dental-clinics/" class="title" role="listitem" aria-label="Dentists">
-  <strong>Dentists</strong>
-  <span class="arrow">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path d="M5 12h12" />
-      <path d="M13 6l6 6-6 6" />
-    </svg>
-  </span>
-</a>
+        <!-- FIXED: class tile (not title) -->
+        <a href="/ai-receptionist-for-dental-clinics/" class="tile" role="listitem" aria-label="Dentists">
+          <strong>Dentists</strong>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h12" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
 
         <div class="tile" role="listitem" tabindex="0" aria-label="GP Clinics">
           <strong>GP Clinics</strong>
@@ -364,7 +363,6 @@
     </div>
   </section>
 
- 
   <!-- =========================================================
     FINAL CTA (centred)
   ========================================================== -->
@@ -410,4 +408,3 @@
 
 </body>
 </html>
-
