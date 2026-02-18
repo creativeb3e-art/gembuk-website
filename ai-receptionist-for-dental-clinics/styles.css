@@ -267,6 +267,17 @@ section{padding:70px 0}
 
 .is-hidden{ display:none !important; }
 
+.currency-toggle,
+.price-toggle{
+  position: relative;
+  z-index: 50;
+}
+
+.toggle-btn{
+  position: relative;
+  z-index: 51;
+}
+
 /* CTA */
 .cta{padding:60px 0 86px}
 .cta-box{
