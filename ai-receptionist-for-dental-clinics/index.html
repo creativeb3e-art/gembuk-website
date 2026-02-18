@@ -25,8 +25,6 @@
     const prices = document.querySelectorAll("[data-price]");
     const label = document.getElementById("currencyLabel");
 
-    if (!buttons.length || !prices.length) return;
-
     function setCurrency(currency) {
       buttons.forEach(b => {
         const on = b.dataset.currency === currency;
@@ -42,10 +40,10 @@
     }
 
     buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
-
     setCurrency("NZD");
   })();
 </script>
+
 
 <body>
   <!-- NAV -->
