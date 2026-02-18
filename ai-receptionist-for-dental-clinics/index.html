@@ -19,11 +19,13 @@
   -->
 </head>
 
- <script>
+<script>
   (function () {
     const buttons = document.querySelectorAll(".toggle-btn");
-    const priceNodes = document.querySelectorAll("[data-price]");
+    const prices = document.querySelectorAll("[data-price]");
     const label = document.getElementById("currencyLabel");
+
+    if (!buttons.length || !prices.length) return;
 
     function setCurrency(currency) {
       buttons.forEach(b => {
@@ -32,9 +34,8 @@
         b.setAttribute("aria-pressed", String(on));
       });
 
-      priceNodes.forEach(n => {
-        const show = n.dataset.currency === currency;
-        n.classList.toggle("is-hidden", !show);
+      prices.forEach(p => {
+        p.classList.toggle("is-hidden", p.dataset.currency !== currency);
       });
 
       if (label) label.textContent = currency;
@@ -42,7 +43,6 @@
 
     buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
 
-    // default
     setCurrency("NZD");
   })();
 </script>
@@ -205,7 +205,6 @@
       </div>
     </section>
 
-    <!-- PRICING (simple) -->
    <!-- PRICING (simple) -->
 <section id="pricing" aria-label="Pricing">
   <div class="wrap">
