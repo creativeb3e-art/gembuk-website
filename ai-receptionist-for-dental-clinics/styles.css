@@ -237,7 +237,7 @@ section{padding:70px 0}
 .inc li svg{width:16px; height:16px; fill:var(--gold); flex:0 0 auto; margin-top:2px}
 .price-actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
 
-.price-toggle{
+.currency-toggle{
   display:inline-flex;
   gap:8px;
   padding:6px;
