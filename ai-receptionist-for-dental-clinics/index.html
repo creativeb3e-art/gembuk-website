@@ -19,6 +19,34 @@
   -->
 </head>
 
+ <script>
+  (function () {
+    const buttons = document.querySelectorAll(".toggle-btn");
+    const priceNodes = document.querySelectorAll("[data-price]");
+    const label = document.getElementById("currencyLabel");
+
+    function setCurrency(currency) {
+      buttons.forEach(b => {
+        const on = b.dataset.currency === currency;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+
+      priceNodes.forEach(n => {
+        const show = n.dataset.currency === currency;
+        n.classList.toggle("is-hidden", !show);
+      });
+
+      if (label) label.textContent = currency;
+    }
+
+    buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
+
+    // default
+    setCurrency("NZD");
+  })();
+</script>
+
 <body>
   <!-- NAV -->
   <header class="nav" aria-label="Primary">
@@ -183,6 +211,12 @@
         <span class="kicker">Pricing</span>
         <h2>Simple and scalable.</h2>
 
+        <div class="price-toggle" role="tablist" aria-label="Currency">
+  <button type="button" class="toggle-btn is-active" data-currency="NZD" aria-pressed="true">NZD</button>
+  <button type="button" class="toggle-btn" data-currency="AUD" aria-pressed="false">AUD</button>
+</div>
+
+
         <div class="pricing">
           <div class="price-card">
             <div class="price-head">
@@ -193,42 +227,42 @@
               <div class="price-tag">Once</div>
             </div>
 
-            <div class="amount">$499</div>
-            <div class="per">Routing + clinic script + testing</div>
+<!-- Setup card amount -->
+<div class="amount">
+  <span data-price="setup" data-currency="NZD">$499</span>
+  <span data-price="setup" data-currency="AUD" class="is-hidden">$549</span>
+</div>
 
-            <div class="price-actions">
-              <a class="btn primary" href="#book">Book a consult</a>
-              <a class="btn" href="mailto:brumilda@gembuk.com?subject=Dental%20AI%20Receptionist%20Enquiry">Email us</a>
-            </div>
-          </div>
+<!-- Monthly card amount -->
+<div class="amount">
+  <span data-price="monthly" data-currency="NZD">$245</span>
+  <span data-price="monthly" data-currency="AUD" class="is-hidden">$269</span>
+  <span style="font-size:16px; font-weight:850;">/mo</span>
+</div>
 
-          <div class="price-card featured">
-            <div class="price-head">
-              <div>
-                <div class="price-title">Monthly</div>
-                <div class="muted2" style="font-size:13px; margin-top:4px;">Overflow + after-hours</div>
-              </div>
-              <div class="price-tag">Popular</div>
-            </div>
+<!-- PAYG + support lines -->
+<ul class="inc" style="margin-top:14px;">
+  <li>
+    <svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4-9.4 9.4z"/></svg>
+    PAYG overage:
+    <strong>
+      <span data-price="payg" data-currency="NZD">$1.75/min</span>
+      <span data-price="payg" data-currency="AUD" class="is-hidden">$1.95/min</span>
+    </strong>
+  </li>
+  <li>
+    <svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4-9.4 9.4z"/></svg>
+    Extra support:
+    <strong>
+      <span data-price="support" data-currency="NZD">$125/hr</span>
+      <span data-price="support" data-currency="AUD" class="is-hidden">$140/hr</span>
+    </strong>
+  </li>
+</ul>
 
-            <div class="amount">$499<span style="font-size:16px; font-weight:850;">/mo</span></div>
-            <div class="per">100 minutes + 30 min support</div>
-
-            <ul class="inc" style="margin-top:14px;">
-              <li><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4-9.4 9.4z"/></svg> PAYG overage: <strong>$1.75/min</strong></li>
-              <li><svg viewBox="0 0 24 24"><path d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4-9.4 9.4z"/></svg> Extra support: <strong>$125/hr</strong></li>
-            </ul>
-
-            <div class="price-actions">
-              <a class="btn primary" href="#book">Book a Free Consult</a>
-              <a class="btn" href="/home/">Back to home</a>
-            </div>
-          </div>
-        </div>
-
-        <p class="muted2" style="margin:14px 0 0;">
-          (Adjust NZD/AUD labels as needed.)
-        </p>
+<p class="muted2" style="margin:14px 0 0;">
+  Prices shown in <span id="currencyLabel">NZD</span>.
+</p>
       </div>
     </section>
 
