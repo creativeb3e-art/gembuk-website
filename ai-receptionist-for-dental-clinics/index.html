@@ -19,33 +19,6 @@
   -->
 </head>
 
-<script>
-  (function () {
-    const buttons = document.querySelectorAll(".toggle-btn");
-    const prices = document.querySelectorAll("[data-price]");
-    const label = document.getElementById("currencyLabel");
-
-    function setCurrency(currency) {
-      buttons.forEach(b => {
-        const on = b.dataset.currency === currency;
-        b.classList.toggle("is-active", on);
-        b.setAttribute("aria-pressed", String(on));
-      });
-
-      prices.forEach(p => {
-        p.classList.toggle("is-hidden", p.dataset.currency !== currency);
-      });
-
-      if (label) label.textContent = currency;
-    }
-
-    buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
-    setCurrency("NZD");
-  })();
-</script>
-
-
-
 <body>
   <!-- NAV -->
   <header class="nav" aria-label="Primary">
@@ -303,5 +276,29 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
+  <script>
+  (function () {
+    const buttons = document.querySelectorAll(".toggle-btn");
+    const prices = document.querySelectorAll("[data-price]");
+    const label = document.getElementById("currencyLabel");
+
+    function setCurrency(currency) {
+      buttons.forEach(b => {
+        const on = b.dataset.currency === currency;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+
+      prices.forEach(p => {
+        p.classList.toggle("is-hidden", p.dataset.currency !== currency);
+      });
+
+      if (label) label.textContent = currency;
+    }
+
+    buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
+    setCurrency("NZD");
+  })();
+</script>
 </body>
 </html>
