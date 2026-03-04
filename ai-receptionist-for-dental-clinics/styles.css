@@ -309,6 +309,12 @@ footer{
 .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
 .foot a{color:var(--muted); text-decoration:underline; text-underline-offset:3px}
 
+footer {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 80px;
+  padding: 40px 0;
+}
+
 @media (max-width: 980px){
   .grid-hero{grid-template-columns: 1fr; gap:18px}
   .cards{grid-template-columns: 1fr}
