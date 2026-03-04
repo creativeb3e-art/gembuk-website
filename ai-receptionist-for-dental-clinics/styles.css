@@ -316,6 +316,12 @@ footer{
 .footer-links a:hover{ color: var(--text); }
 .footer-small{ margin-top: 10px; }
 
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 @media (max-width: 980px){
   .grid-hero{grid-template-columns: 1fr; gap:18px}
   .cards{grid-template-columns: 1fr}
