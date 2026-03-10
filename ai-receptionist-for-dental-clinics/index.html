@@ -330,31 +330,52 @@
 </footer>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-  <script>
-  (function () {
-    const buttons = document.querySelectorAll(".toggle-btn");
-    const prices = document.querySelectorAll("[data-price]");
-    const label = document.getElementById("currencyLabel");
+document.getElementById('gembukDemoForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  const email = document.getElementById('email').value;
+  const confirmEmail = document.getElementById('confirmEmail').value;
 
-    function setCurrency(currency) {
-      buttons.forEach(b => {
-        const on = b.dataset.currency === currency;
-        b.classList.toggle("is-active", on);
-        b.setAttribute("aria-pressed", String(on));
+  if (email !== confirmEmail) {
+    status.textContent = "Emails do not match!";
+    status.style.color = "#ff4d4d";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  grecaptcha.ready(function() {
+    // Replace 'YOUR_SITE_KEY' with the one from Google reCAPTCHA
+    grecaptcha.execute('6Lf1YIUsAAAAABPzDdDel67Mk4N2O8_xf3_rEeUO', {action: 'submit'}).then(function(token) {
+      
+      const formData = {
+        clinicName: document.getElementById('clinicName').value,
+        fullName: document.getElementById('fullName').value, // This matches data.fullName in Apps Script
+        email: email,
+        phone: document.getElementById('phone').value,
+        captchaToken: token
+      };
+
+      fetch('YOUR_NEW_WEB_APP_URL', {
+        method: 'POST',
+        // No 'no-cors' here if you want to handle the response properly
+        body: JSON.stringify(formData)
+      }).then(res => {
+        status.textContent = "Success! Please check your email for instructions.";
+        status.style.color = "#f3c84b";
+        document.getElementById('gembukDemoForm').reset();
+        btn.textContent = "Sent!";
+      }).catch(err => {
+        status.textContent = "Error sending. Please try again.";
+        btn.disabled = false;
+        btn.textContent = "Send Demo Instructions";
       });
-
-      prices.forEach(p => {
-        p.classList.toggle("is-hidden", p.dataset.currency !== currency);
-      });
-
-      if (label) label.textContent = currency;
-    }
-
-    buttons.forEach(b => b.addEventListener("click", () => setCurrency(b.dataset.currency)));
-    setCurrency("NZD");
-  })();
+    });
+  });
+});
 </script>
   <script>
 document.getElementById('gembukDemoForm').addEventListener('submit', function(e) {
