@@ -6,21 +6,10 @@
   <title>AI Receptionist for Dental Clinics | Gembuk</title>
   <meta name="description" content="Stop losing bookings from missed dental calls. AI receptionist for overflow and after-hours calls in NZ & Australia." />
 
-  <!-- Dental page stylesheet -->
   <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Optional: if you also have dental favicons inside this folder, keep these.
-       If not, delete them to avoid 404s. -->
-  <!--
-  <link rel="icon" href="./assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-  -->
 </head>
 
 <body>
-  <!-- NAV -->
   <header class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
       <a class="brand" href="/home/">gembuk</a>
@@ -31,15 +20,13 @@
         <a href="/home/#about">About</a>
       </nav>
 
-<div class="hero-actions">
-          <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
-               </div>
-
-         </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" aria-label="Hero">
       <div class="wrap">
         <span class="kicker">Dental clinics (NZ & Australia)</span>
@@ -70,7 +57,6 @@
             </div>
           </div>
 
-          <!-- Right hero card -->
           <aside class="hero-card" aria-label="How it works snapshot">
             <div class="mini">
               <span class="badge"><span class="dot"></span> Overflow + after-hours</span>
@@ -128,7 +114,6 @@
       </div>
     </section>
 
-    <!-- WHY (3 tiles only) -->
     <section aria-label="Why clinics choose us">
       <div class="wrap">
         <div class="section-head">
@@ -179,50 +164,108 @@
     </section>
 
     <section id="demo-form" aria-label="Request a Demo">
-  <div class="wrap">
-    <div class="cta-box" style="display: block; max-width: 800px; margin: 0 auto;">
-      <span class="kicker">Get Started</span>
-      <h2>Request your AI Demo</h2>
-      <p class="lead">Enter your details below. We'll verify your email and send your demo instructions instantly.</p>
+      <div class="wrap">
+        <div class="cta-box" style="display: block; max-width: 800px; margin: 0 auto;">
+          <span class="kicker">Get Started</span>
+          <h2>Request your AI Demo</h2>
+          <p class="lead">Enter your details below. We'll verify your email and send your demo instructions instantly.</p>
 
-      <form id="gembukDemoForm" class="demo-grid">
-        <div class="input-group">
-          <label for="clinicName">Clinic Name</label>
-          <input type="text" id="clinicName" name="clinicName" placeholder="e.g. Bright Smiles Dental" required>
-        </div>
+          <form id="gembukDemoForm" class="demo-grid">
+            <div class="input-group">
+              <label for="clinicName">Clinic Name</label>
+              <input type="text" id="clinicName" name="clinicName" placeholder="e.g. Bright Smiles Dental" required>
+            </div>
 
-        <div class="input-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" name="fullName" placeholder="Your Name" required>
-        </div>
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your Name" required>
+            </div>
 
-        <div class="input-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="name@clinic.co.nz" required>
-        </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="name@clinic.co.nz" required>
+            </div>
 
-        <div class="input-group">
-          <label for="confirmEmail">Confirm Email</label>
-          <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Repeat email" required>
-        </div>
+            <div class="input-group">
+              <label for="confirmEmail">Confirm Email</label>
+              <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Repeat email" required>
+            </div>
 
-        <div class="input-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="021..." required>
-        </div>
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="021..." required>
+            </div>
 
-        <div class="form-footer">
-          <p id="formStatus" class="muted2" style="font-size: 13px; margin-bottom: 10px;"></p>
-          <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
-            Send Demo Instructions
-          </button>
+            <div class="form-footer">
+              <p id="formStatus" class="muted2" style="font-size: 13px; margin-bottom: 10px;"></p>
+              <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+                Send Demo Instructions
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
+    </section>
+
+    <section id="pricing" aria-label="Pricing">
+      <div class="wrap">
+        <span class="kicker">Pricing</span>
+        <h2>Simple and scalable.</h2>
+        <div class="pricing">
+          <div class="price-card">
+            <div class="price-head">
+              <div>
+                <div class="price-title">Setup</div>
+                <div class="muted2" style="font-size:13px; margin-top:4px;">One-off onboarding</div>
+              </div>
+              <div class="price-tag">Once</div>
+            </div>
+            <div class="amount">$499</div>
+            <div class="per">Routing + clinic script + testing</div>
+            <div class="price-actions">
+              <a class="btn primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Consult</a>
+            </div>
+          </div>
+
+          <div class="price-card featured">
+            <div class="price-head">
+              <div>
+                <div class="price-title">Monthly</div>
+                <div class="muted2" style="font-size:13px; margin-top:4px;">Overflow + after-hours</div>
+              </div>
+              <div class="price-tag">Popular</div>
+            </div>
+            <div class="amount">$499 <span class="per-suffix">/mo</span></div>
+            <div class="per">100 minutes + 30 min support</div>
+            <div class="price-actions">
+              <a class="btn primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Consult</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="Footer">
+    <div class="container footer-row">
+      <div>
+        <div class="brand">gembuk</div>
+        <div class="footer-small">
+          <a href="mailto:hello@gembuk.com">hello@gembuk.com</a>
+        </div>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="/home/">Home</a>
+        <a href="/home/#services">Solutions</a>
+        <a href="/home/#industries">Industries</a>
+        <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lf1YIUsAAAAABPzDdDel67Mk4N2O8_xf3_rEeUO"></script>
+
+  <script>
     document.getElementById('gembukDemoForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -231,7 +274,7 @@
       const email = document.getElementById('email').value;
       const confirmEmail = document.getElementById('confirmEmail').value;
 
-      // 1. Email matching check
+      // Email match check
       if (email !== confirmEmail) {
         status.textContent = "Emails do not match!";
         status.style.color = "#ff4d4d";
@@ -241,7 +284,6 @@
       btn.disabled = true;
       btn.textContent = "Sending...";
 
-      // 2. reCAPTCHA v3 Logic
       grecaptcha.ready(function() {
         grecaptcha.execute('6Lf1YIUsAAAAABPzDdDel67Mk4N2O8_xf3_rEeUO', {action: 'submit'}).then(function(token) {
           
@@ -253,20 +295,18 @@
             captchaToken: token
           };
 
-          // 3. Send to your NEW Google Apps Script Deployment
+          // Using the latest deployment URL from your previous message
           fetch('https://script.google.com/macros/s/AKfycbxMd0RLzTsnia6xXv0Zh09slEYu8K4R_lwilS0Fj3criXrMA97lOPH7xWsd6BD8EGwC/exec', {
             method: 'POST',
             body: JSON.stringify(formData)
           })
           .then(res => {
-            // Success Path
             status.textContent = "Success! Please check your email.";
             status.style.color = "#f3c84b";
             document.getElementById('gembukDemoForm').reset();
             btn.textContent = "Sent!";
           })
           .catch(err => {
-            // Error Path
             console.error("Submission error:", err);
             status.textContent = "Error sending. Please try again.";
             btn.disabled = false;
