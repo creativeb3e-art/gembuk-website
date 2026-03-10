@@ -213,6 +213,53 @@ section{padding:70px 0}
 .card h3{margin:0; font-size:16px; font-weight:900}
 .card p{margin:6px 0 0; color:var(--muted-2); font-size:13.5px}
 
+/* Demo Form Styling */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input-group input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  color: white;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-footer {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .demo-grid { grid-template-columns: 1fr; }
+  .form-footer { grid-column: span 1; }
+}
 /* Pricing */
 .pricing{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px}
 .price-card{
