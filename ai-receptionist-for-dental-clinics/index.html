@@ -178,6 +178,51 @@
       </div>
     </section>
 
+    <section id="demo-form" aria-label="Request a Demo">
+  <div class="wrap">
+    <div class="cta-box" style="display: block; max-width: 800px; margin: 0 auto;">
+      <span class="kicker">Get Started</span>
+      <h2>Request your AI Demo</h2>
+      <p class="lead">Enter your details below. We'll verify your email and send your demo instructions instantly.</p>
+
+      <form id="gembukDemoForm" class="demo-grid">
+        <div class="input-group">
+          <label for="clinicName">Clinic Name</label>
+          <input type="text" id="clinicName" name="clinicName" placeholder="e.g. Bright Smiles Dental" required>
+        </div>
+
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Your Name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="name@clinic.co.nz" required>
+        </div>
+
+        <div class="input-group">
+          <label for="confirmEmail">Confirm Email</label>
+          <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Repeat email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="021..." required>
+        </div>
+
+        <div class="form-footer">
+          <p id="formStatus" class="muted2" style="font-size: 13px; margin-bottom: 10px;"></p>
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+            Send Demo Instructions
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
    <!-- PRICING (simple) -->
 <section id="pricing" aria-label="Pricing">
   <div class="wrap">
