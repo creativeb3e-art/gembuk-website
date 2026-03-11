@@ -470,3 +470,8 @@ footer{
     opacity: 1 !important;
   }
 }
+
+/* Fix for Anchor Links landing under the sticky header */
+#industries {
+  scroll-margin-top: 100px; /* Adjust this number to match your header height */
+}
