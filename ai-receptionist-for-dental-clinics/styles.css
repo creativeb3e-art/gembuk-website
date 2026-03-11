@@ -432,3 +432,7 @@ footer{
   .cta-actions{justify-content:flex-start}
 }
 .currency-toggle { position: relative; z-index: 9999; }
+
+html {
+  scroll-behavior: smooth;
+}
