@@ -463,6 +463,105 @@ section{padding:70px 0}
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Pricing Section Polish */
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  transition: border-color 0.3s ease;
+}
+
+.price-card.featured {
+  border-color: rgba(243, 200, 75, 0.4);
+  background: radial-gradient(circle at top left, rgba(243, 200, 75, 0.08), transparent),
+              linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.badge-popular {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--gold);
+  color: #0b111b;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.price-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.amount span {
+  font-size: 16px;
+  color: var(--muted-2);
+  font-weight: 500;
+}
+
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.price-features li {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+
+.price-features .tick {
+  width: 18px;
+  height: 18px;
+  background: rgba(243, 200, 75, 0.2);
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-features .tick::after {
+  content: "✓";
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* Ensure the pricing cards stack beautifully on mobile */
+@media (max-width: 768px) {
+  .pricing {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 /* CTA */
 .cta{padding:60px 0 86px}
 .cta-box{
