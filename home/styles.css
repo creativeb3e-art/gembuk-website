@@ -460,10 +460,13 @@ footer{
   margin-top:30px;
 }
 
-/* Final override for Mobile Menu Button Text */
+/* ABSOLUTE FINAL OVERRIDE */
 @media (max-width: 980px) {
-  .nav .mobile-only-btn.btn-primary {
-    color: #0b111b !important; /* Deep Navy */
+  /* Targeting the button by class and property to force the navy color */
+  header .nav a.btn.btn-primary.mobile-only-btn {
+    color: #0b111b !important; 
     background: var(--gold) !important;
+    -webkit-text-fill-color: #0b111b !important; /* Forces color on some mobile browsers */
+    opacity: 1 !important;
   }
 }
