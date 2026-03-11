@@ -340,5 +340,26 @@
       });
     });
   </script>
+
+  <script>
+function setCurrency(currency) {
+  const nzdSection = document.getElementById('pricing-nzd');
+  const audSection = document.getElementById('pricing-aud');
+  const nzdBtn = document.getElementById('btn-nzd');
+  const audBtn = document.getElementById('btn-aud');
+
+  if (currency === 'NZD') {
+    nzdSection.style.display = 'block';
+    audSection.style.display = 'none';
+    nzdBtn.classList.add('is-active');
+    audBtn.classList.remove('is-active');
+  } else {
+    nzdSection.style.display = 'none';
+    audSection.style.display = 'block';
+    audBtn.classList.add('is-active');
+    nzdBtn.classList.remove('is-active');
+  }
+}
+</script>
 </body>
 </html>
