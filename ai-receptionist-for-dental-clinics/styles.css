@@ -418,6 +418,10 @@ section{padding:70px 0}
   .form-footer { grid-column: span 1; }
 }
 /* Pricing */
+
+.price-card {
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
 .pricing{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px}
 .price-card{
   border-radius: var(--radius);
