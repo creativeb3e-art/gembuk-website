@@ -220,43 +220,54 @@
       </div>
     </section>
 
-    <section id="pricing" aria-label="Pricing">
-      <div class="wrap">
-        <span class="kicker">Pricing</span>
-        <h2>Simple and scalable.</h2>
-        <div class="pricing">
-          <div class="price-card">
-            <div class="price-head">
-              <div>
-                <div class="price-title">Setup</div>
-                <div class="muted2" style="font-size:13px; margin-top:4px;">One-off onboarding</div>
-              </div>
-              <div class="price-tag">Once</div>
-            </div>
-            <div class="amount">$499</div>
-            <div class="per">Routing + clinic script + testing</div>
-            <div class="price-actions">
-              <a class="btn primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Consult</a>
-            </div>
-          </div>
+   <section id="pricing" class="section">
+  <div class="container">
+    <span class="eyebrow">Pricing</span>
+    <h2>Simple and scalable.</h2>
 
-          <div class="price-card featured">
-            <div class="price-head">
-              <div>
-                <div class="price-title">Monthly</div>
-                <div class="muted2" style="font-size:13px; margin-top:4px;">Overflow + after-hours</div>
-              </div>
-              <div class="price-tag">Popular</div>
-            </div>
-            <div class="amount">$499 <span class="per-suffix">/mo</span></div>
-            <div class="per">100 minutes + 30 min support</div>
-            <div class="price-actions">
-              <a class="btn primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Consult</a>
-            </div>
-          </div>
+    <div class="currency-toggle">
+      <button class="toggle-btn is-active" id="btn-nzd" onclick="setCurrency('NZD')">NZD</button>
+      <button class="toggle-btn" id="btn-aud" onclick="setCurrency('AUD')">AUD</button>
+    </div>
+
+    <div id="pricing-nzd" class="pricing-grid">
+      <div class="pricing">
+        <div class="price-card">
+          <div class="price-title">Setup</div>
+          <div class="amount">$499</div>
+          <p class="per">One-off onboarding (NZD)</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book NZ Consult</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-title">Monthly</div>
+          <div class="amount">$499 <span style="font-size:16px;">/mo</span></div>
+          <p class="per">Overflow + After-hours (NZD)</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book NZ Consult</a>
         </div>
       </div>
-    </section>
+      <p class="currency-note">Prices shown in <strong>NZD</strong></p>
+    </div>
+
+    <div id="pricing-aud" class="pricing-grid" style="display:none;">
+      <div class="pricing">
+        <div class="price-card">
+          <div class="price-title">Setup</div>
+          <div class="amount">$475</div>
+          <p class="per">One-off onboarding (AUD)</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book AU Consult</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-title">Monthly</div>
+          <div class="amount">$475 <span style="font-size:16px;">/mo</span></div>
+          <p class="per">Overflow + After-hours (AUD)</p>
+          <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book AU Consult</a>
+        </div>
+      </div>
+      <p class="currency-note">Prices shown in <strong>AUD</strong></p>
+    </div>
+
+  </div>
+</section>
   </main>
 
   <footer aria-label="Footer">
