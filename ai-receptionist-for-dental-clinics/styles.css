@@ -421,45 +421,46 @@ section{padding:70px 0}
 .inc li svg{width:16px; height:16px; fill:var(--gold); flex:0 0 auto; margin-top:2px}
 .price-actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
 
-.currency-toggle{
-  display:inline-flex;
-  gap:8px;
-  padding:6px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  margin: 14px 0 0;
+/* --- Pricing Toggle Styling --- */
+.currency-toggle {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  padding: 4px;
+  border-radius: 999px;
+  margin-bottom: 30px;
 }
 
-.toggle-btn{
-  height:36px;
-  padding:0 14px;
-  border-radius:999px;
-  border:1px solid transparent;
+.toggle-btn {
+  border: none;
   background: transparent;
   color: var(--muted);
-  font-weight: 850;
-  font-size: 13px;
-  cursor:pointer;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.toggle-btn.is-active{
-  background: rgba(243,200,75,.14);
-  border-color: rgba(243,200,75,.28);
-  color: var(--text);
+.toggle-btn.is-active {
+  background: var(--gold);
+  color: #0b111b;
 }
 
-.is-hidden{ display:none !important; }
-
-.currency-toggle,
-.price-toggle{
-  position: relative;
-  z-index: 50;
+.currency-note {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted-2);
 }
 
-.toggle-btn{
-  position: relative;
-  z-index: 51;
+.pricing-grid {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* CTA */
