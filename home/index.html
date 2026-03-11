@@ -18,21 +18,27 @@
 
 <body>
   <!-- NAV -->
-  <header class="header" aria-label="Primary">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Gembuk home">gembuk</a>
+ <header class="header" aria-label="Primary">
+  <div class="container nav-wrap">
+    <a class="brand" href="#top" aria-label="Gembuk home">gembuk</a>
 
-      <nav class="nav" aria-label="Top menu">
-        <a href="#services">Solutions</a>
-        <a href="#serve">Who we serve</a>
-        <a href="#about">About</a>
-        <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
-      </nav>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
 
-      <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
-    </div>
-  </header>
+    <nav class="nav" aria-label="Top menu">
+      <a href="#services">Solutions</a>
+      <a href="#serve">Who we serve</a>
+      <a href="#about">About</a>
+      <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
+      <a class="btn btn-primary mobile-only-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Call</a>
+    </nav>
 
+    <a class="btn btn-primary nav-desktop-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+  </div>
+</header>
   <!-- HERO -->
   <main id="top" class="hero" aria-label="Hero">
     <div class="container hero-grid">
