@@ -459,3 +459,11 @@ footer{
 .video-cta{
   margin-top:30px;
 }
+
+/* Final override for Mobile Menu Button Text */
+@media (max-width: 980px) {
+  .nav .mobile-only-btn.btn-primary {
+    color: #0b111b !important; /* Deep Navy */
+    background: var(--gold) !important;
+  }
+}
