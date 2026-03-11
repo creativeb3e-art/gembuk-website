@@ -75,7 +75,10 @@ p{ margin:0 0 14px 0; color: var(--muted); }
   background: rgba(11,17,27,.74);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,.10);
+  overflow: visible;
 }
+
+
 
 .nav-wrap{
   display:flex;
@@ -166,7 +169,7 @@ p{ margin:0 0 14px 0; color: var(--muted); }
     right: 0;
     width: 100vw; /* Full screen width */
     margin-left: calc(-50vw + 50%); /* Centers the full-width menu */
-    background: var(--bg-2);
+    background: #0f1726;
     padding: 24px;
     gap: 8px;
     border-bottom: 2px solid var(--gold);
@@ -176,7 +179,7 @@ p{ margin:0 0 14px 0; color: var(--muted); }
 
   /* Show menu when checkbox is checked */
   .nav-toggle:checked ~ .nav {
-    display: flex;
+    display: flex; !important;
   }
 
   /* Animate Icon to X */
@@ -405,7 +408,6 @@ footer{
   .cards-3{ grid-template-columns: 1fr; }
   .tiles{ grid-template-columns: 1fr; }
   .two-col{ grid-template-columns: 1fr; }
-  .nav{ display:none; }
 }
 @media (max-width: 520px){
   .container{ width: min(var(--max), calc(100% - 32px)); }
