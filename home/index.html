@@ -6,40 +6,42 @@
   <meta name="description" content="Gembuk — AI automations, AI agents, and practical AI training to save time, reduce costs, and improve consistency." />
   <title>Gembuk | Simple. Smart. AI-Powered.</title>
 
-  <!-- Home page stylesheet -->
   <link rel="stylesheet" href="./styles.css" />
 
-  <!-- Favicons (these are in /home/assets/ per your screenshots) -->
   <link rel="icon" href="./assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gembuk.com/">
+  <meta property="og:title" content="Gembuk | Simple. Smart. AI-Powered.">
+  <meta property="og:description" content="AI automations, AI agents, and practical AI training to save time and reduce costs.">
+  <meta property="og:image" content="https://gembuk.com/home/assets/antelope-gembuk-business-handshake-white.png">
 </head>
 
 <body>
-  <!-- NAV -->
- <header class="header" aria-label="Primary">
-  <div class="container nav-wrap">
-    <a class="brand" href="#top" aria-label="Gembuk home">gembuk</a>
+  <header class="header" aria-label="Primary">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Gembuk home">gembuk</a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
-    
-    <label for="nav-toggle" class="nav-toggle-label">
-      <span></span>
-    </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
 
-    <nav class="nav" aria-label="Top menu">
-      <a href="#services">Solutions</a>
-      <a href="#serve">Who we serve</a>
-      <a href="#about">About</a>
-      <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
-      <a class="btn btn-primary mobile-only-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Call</a>
-    </nav>
+      <nav class="nav" aria-label="Top menu">
+        <a href="#services">Solutions</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
+        <a class="btn btn-primary mobile-only-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Call</a>
+      </nav>
 
-    <a class="btn btn-primary nav-desktop-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
-  </div>
-</header>
-  <!-- HERO -->
+      <a class="btn btn-primary nav-desktop-btn" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+    </div>
+  </header>
+
   <main id="top" class="hero" aria-label="Hero">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -52,156 +54,125 @@
           <a class="btn" href="#services">See solutions</a>
         </div>
 
-        <div class="hero-bullets" role="list" aria-label="Highlights">
-          <div class="bullet" role="listitem"><span class="dot" aria-hidden="true"></span> Save time on repetitive work</div>
-          <div class="bullet" role="listitem"><span class="dot" aria-hidden="true"></span> Improve consistency and response speed</div>
+        <div class="hero-bullets" role="list">
+          <div class="bullet"><span class="dot"></span> Save time on repetitive work</div>
+          <div class="bullet"><span class="dot"></span> Improve consistency and response speed</div>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="What you get">
-        <div class="card-title">What you get</div>
-
-        <div class="mini-grid">
-          <div class="mini">
-            <div class="mini-h">Clarity</div>
-            <div class="mini-p">Simple scope, clear outcomes</div>
+      <aside class="hero-card">
+        <div class="card-title" style="font-weight:900; margin-bottom:12px;">What you get</div>
+        <div class="mini-grid" style="display:grid; gap:10px;">
+          <div class="mini" style="border:1px solid var(--line); background:rgba(255,255,255,0.03); padding:12px; border-radius:12px;">
+            <div style="font-weight:900; font-size:14px;">Clarity</div>
+            <div style="color:var(--muted-2); font-size:13px;">Simple scope, clear outcomes</div>
           </div>
-          <div class="mini">
-            <div class="mini-h">Speed</div>
-            <div class="mini-p">Fast delivery and iterations</div>
+          <div class="mini" style="border:1px solid var(--line); background:rgba(255,255,255,0.03); padding:12px; border-radius:12px;">
+            <div style="font-weight:900; font-size:14px;">Speed</div>
+            <div style="color:var(--muted-2); font-size:13px;">Fast delivery and iterations</div>
           </div>
-          <div class="mini">
-            <div class="mini-h">Trust</div>
-            <div class="mini-p">No hype, just results</div>
+          <div class="mini" style="border:1px solid var(--line); background:rgba(255,255,255,0.03); padding:12px; border-radius:12px;">
+            <div style="font-weight:900; font-size:14px;">Trust</div>
+            <div style="color:var(--muted-2); font-size:13px;">No hype, just results</div>
           </div>
         </div>
-
-        <div class="divider" aria-hidden="true"></div>
-
-        <div class="badge-row" aria-label="Capabilities">
-          <span class="badge">AI voice + chat</span>
-          <span class="badge">Integrations</span>
-          <span class="badge">Workshops</span>
+        <div style="height:1px; background:var(--line); margin:16px 0;"></div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">AI voice + chat</span>
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">Integrations</span>
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">Workshops</span>
         </div>
       </aside>
     </div>
   </main>
 
- <section class="video-section">
-  <div class="container">
-
-    <h2 class="video-title">See How Gembuk Can Help Your Business</h2>
-
-    <div class="video-wrapper">
-      <iframe
-        src="https://player.vimeo.com/video/1170809856"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+  <section class="video-section">
+    <div class="container">
+      <h2 class="video-title">See How Gembuk Can Help Your Business</h2>
+      <div class="video-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:18px; box-shadow:var(--shadow);">
+        <iframe src="https://player.vimeo.com/video/1170809856" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-cta" style="margin-top:30px;">
+        <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+      </div>
     </div>
+  </section>
 
-    <div class="video-cta">
-  <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">
-    Book a Free Discovery Call
-  </a>
-</div>
-
-  </div>
-</section>
-
-  <!-- SOLUTIONS -->
-  <section id="services" class="section" aria-label="Solutions">
+  <section id="services" class="section">
     <div class="container">
       <span class="eyebrow">Solutions</span>
       <h2>Three ways we help.</h2>
-
       <div class="cards-3">
-        <article class="card" aria-label="AI Automations">
-          <div class="top">
-            <span class="badge">AI Automations</span>
-          </div>
-          <p class="card-line">Remove manual steps and reduce admin load.</p>
+        <article class="card">
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">AI Automations</span>
+          <p style="margin-top:10px;">Remove manual steps and reduce admin load.</p>
           <ul class="list">
-            <li><span class="tick" aria-hidden="true"></span> Process automation</li>
-            <li><span class="tick" aria-hidden="true"></span> System integrations</li>
-            <li><span class="tick" aria-hidden="true"></span> AI-assisted workflows</li>
+            <li><span class="tick"></span> Process automation</li>
+            <li><span class="tick"></span> System integrations</li>
+            <li><span class="tick"></span> AI-assisted workflows</li>
           </ul>
         </article>
-
-        <article class="card" aria-label="AI Agents">
-          <div class="top">
-            <span class="badge">AI Agents</span>
-          </div>
-          <p class="card-line">Voice and chat agents that handle enquiries 24/7.</p>
+        <article class="card">
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">AI Agents</span>
+          <p style="margin-top:10px;">Voice and chat agents that handle enquiries 24/7.</p>
           <ul class="list">
-            <li><span class="tick" aria-hidden="true"></span> Voice AI (overflow / after-hours)</li>
-            <li><span class="tick" aria-hidden="true"></span> Website & internal assistants</li>
-            <li><span class="tick" aria-hidden="true"></span> Custom scripts & summaries</li>
+            <li><span class="tick"></span> Voice AI (overflow / after-hours)</li>
+            <li><span class="tick"></span> Website & internal assistants</li>
+            <li><span class="tick"></span> Custom scripts & summaries</li>
           </ul>
         </article>
-
-        <article class="card" aria-label="AI Training">
-          <div class="top">
-            <span class="badge">AI Training</span>
-          </div>
-          <p class="card-line">Plain-English training your team will actually use.</p>
+        <article class="card">
+          <span class="badge" style="padding:4px 10px; border-radius:999px; background:rgba(243,200,75,0.1); border:1px solid rgba(243,200,75,0.3); font-size:11px; font-weight:800;">AI Training</span>
+          <p style="margin-top:10px;">Plain-English training your team will actually use.</p>
           <ul class="list">
-            <li><span class="tick" aria-hidden="true"></span> Workshops</li>
-            <li><span class="tick" aria-hidden="true"></span> Team enablement</li>
-            <li><span class="tick" aria-hidden="true"></span> Ongoing guidance</li>
+            <li><span class="tick"></span> Workshops</li>
+            <li><span class="tick"></span> Team enablement</li>
+            <li><span class="tick"></span> Ongoing guidance</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- WHO WE SERVE -->
-  <section id="industries" class="section" aria-label="Who we serve">
+  <section id="industries" class="section">
     <div class="container">
       <span class="eyebrow">Industries</span>
       <h2>Who we serve.</h2>
       <p class="lead">Focus areas where speed and consistency matter.</p>
-
-      <div class="tiles" role="list">
-        <div class="tile" role="listitem"><strong>Councils</strong></div>
-        <div class="tile" role="listitem"><strong>SMEs</strong></div>
-        <div class="tile" role="listitem"><strong>Law firms</strong></div>
-
-        <a class="tile tile-link" role="listitem" href="/ai-receptionist-for-dental-clinics/" aria-label="Dental clinics">
+      <div class="cards-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:center; text-align:center;"><strong>Councils</strong></div>
+        <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:center; text-align:center;"><strong>SMEs</strong></div>
+        <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:center; text-align:center;"><strong>Law firms</strong></div>
+        <a class="card" href="/ai-receptionist-for-dental-clinics/" style="padding:18px; display:flex; align-items:center; justify-content:space-between; border-color:var(--gold);">
           <strong>Dental clinics</strong>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span style="color:var(--gold); font-weight:900;">→</span>
         </a>
-
-        <div class="tile" role="listitem"><strong>GP clinics</strong></div>
-        <div class="tile" role="listitem"><strong>Accounting firms</strong></div>
+        <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:center; text-align:center;"><strong>GP clinics</strong></div>
+        <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:center; text-align:center;"><strong>Accounting firms</strong></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section" aria-label="About">
-    <div class="container two-col">
+  <section id="about" class="section">
+    <div class="container hero-grid">
       <div>
         <span class="eyebrow">About</span>
         <h2>Built for practical outcomes.</h2>
         <p class="lead">We keep it simple: identify the bottleneck, build the fix, measure the result.</p>
         <div class="hero-actions">
-          <a class="btn" href="mailto:hello@gembuk.com?subject=Discovery%20Call%20Request">Partnership enquiry</a>
+          <a class="btn" href="mailto:hello@gembuk.com">Partnership enquiry</a>
           <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a call</a>
         </div>
       </div>
-
-      <div class="illustration" aria-label="Illustration">
-        <img src="./assets/antelope-gembuk-business-handshake-white.png" alt="Partnership illustration" loading="lazy">
+      <div class="hero-card" style="padding:0; overflow:hidden;">
+        <img src="./assets/antelope-gembuk-business-handshake-white.png" alt="Partnership illustration" style="width:100%; height:auto;">
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="final-cta" aria-label="Final call to action">
+  <section class="section" style="border-bottom:0;">
     <div class="container">
-      <div class="cta-box centered">
+      <div class="card" style="text-align:center; padding:40px; display:grid; gap:20px; justify-items:center;">
         <h2>Want a clean plan for your fastest win?</h2>
         <p>Book a short discovery call and we’ll map the quickest route to time savings.</p>
         <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
@@ -209,16 +180,15 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer aria-label="Footer">
+  <footer>
     <div class="container footer-row">
       <div>
         <div class="brand">gembuk</div>
-        <div class="footer-small"><a href="mailto:hello@gembuk.com">hello@gembuk.com</a></div>
+        <div style="margin-top:10px;"><a href="mailto:hello@gembuk.com">hello@gembuk.com</a></div>
       </div>
-      <div class="footer-links" aria-label="Footer links">
+      <div class="footer-links">
         <a href="#services">Solutions</a>
-        <a href="#serve">Industries</a>
+        <a href="#industries">Industries</a>
         <a href="/ai-receptionist-for-dental-clinics/">Dental</a>
       </div>
     </div>
