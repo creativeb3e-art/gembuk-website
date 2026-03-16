@@ -698,9 +698,6 @@ section:nth-of-type(even) {
   #nav-toggle:checked ~ .menu {
     display: flex !important;
   }
-  #nav-toggle:checked ~ .menu .mobile-only-btn {
-  display: inline-flex !important;
-}
 
   #nav-toggle:checked ~ .nav-toggle-label span {
     background: transparent;
@@ -723,10 +720,10 @@ section:nth-of-type(even) {
     border-radius: 0;
   }
 
-  .mobile-only-btn {
+  #nav-toggle:checked ~ .menu .mobile-only-btn {
     display: inline-flex !important;
-    margin-top: 10px;
     width: 100%;
+    margin-top: 10px;
     color: #0b111b !important;
     background: var(--gold) !important;
     -webkit-text-fill-color: #0b111b !important;
