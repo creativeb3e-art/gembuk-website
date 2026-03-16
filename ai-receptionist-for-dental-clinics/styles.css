@@ -103,9 +103,13 @@ img {
   display: none;
 }
 
-.nav-toggle-label,
+/* Hide the mobile button on desktop by default */
 .mobile-only-btn {
   display: none !important;
+}
+
+.nav-toggle-label {
+  display: none;
 }
 
 /* --- SECTIONS & SPACING --- */
@@ -760,4 +764,28 @@ footer {
 /* Alternating background for sections to create visual "containers" */
 section:nth-of-type(even) {
   background: rgba(255, 255, 255, 0.015);
+}
+
+@media (max-width: 980px) {
+  .nav-desktop-btn {
+    display: none !important;
+  }
+
+  .nav-toggle-label {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  /* Show the button inside the menu on mobile */
+  .mobile-only-btn {
+    display: inline-flex !important;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .menu {
+    display: none;
+    /* ... rest of your existing menu styles ... */
+  }
 }
