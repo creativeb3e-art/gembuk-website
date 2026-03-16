@@ -698,6 +698,9 @@ section:nth-of-type(even) {
   #nav-toggle:checked ~ .menu {
     display: flex !important;
   }
+  #nav-toggle:checked ~ .menu .mobile-only-btn {
+  display: inline-flex !important;
+}
 
   #nav-toggle:checked ~ .nav-toggle-label span {
     background: transparent;
