@@ -742,27 +742,3 @@ section:nth-of-type(even) {
     align-items: flex-start;
   }
 }
-
-@media (max-width: 520px) {
-  .wrap,
-  .container {
-    width: min(var(--max), calc(100% - 32px));
-    padding: 0;
-  }
-
-  .brand {
-    font-size: 18px;
-  }
-
-  .flow-row {
-    align-items: flex-start;
-  }
-
-  .flow-right {
-    font-size: 12px;
-  }
-
-  .amount {
-    font-size: 40px;
-  }
-}
