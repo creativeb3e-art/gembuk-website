@@ -651,34 +651,10 @@ footer {
     padding: 10px;
   }
 
-  .nav-toggle-label span,
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after {
-    display: block;
-    background: var(--gold);
-    height: 2px;
-    width: 24px;
-    border-radius: 2px;
-    position: relative;
-    transition: all .3s ease;
-  }
-
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after {
-    content: "";
-    position: absolute;
-  }
-
-  .nav-toggle-label span::before {
-    bottom: 8px;
-  }
-
-  .nav-toggle-label span::after {
-    top: 8px;
-  }
+  /* ... keep your existing span/hamburger menu line code here ... */
 
   .menu {
-    display: none !important;
+    display: none !important; /* This stays hidden until checked */
     position: absolute;
     top: 76px;
     left: 0;
@@ -691,22 +667,9 @@ footer {
     z-index: 50;
   }
 
+  /* This is the magic line that shows the menu when you click the hamburger */
   #nav-toggle:checked ~ .menu {
     display: flex !important;
-  }
-
-  #nav-toggle:checked ~ .nav-toggle-label span {
-    background: transparent;
-  }
-
-  #nav-toggle:checked ~ .nav-toggle-label span::before {
-    transform: rotate(45deg);
-    bottom: 0;
-  }
-
-  #nav-toggle:checked ~ .nav-toggle-label span::after {
-    transform: rotate(-45deg);
-    top: 0;
   }
 
   .menu a {
@@ -716,12 +679,17 @@ footer {
     border-radius: 0;
   }
 
+  /* SHOWS THE BUTTON INSIDE THE MENU */
   .mobile-only-btn {
     display: inline-flex !important;
     margin-top: 10px;
-    color: #0b111b !important;
+    color: #1c2433 !important; /* Ensures text is dark on gold button */
     background: var(--gold) !important;
+    width: 100%;
   }
+
+  /* ... keep the rest of your grid/card responsive code ... */
+}
 
   .grid-hero,
   .cards,
@@ -764,28 +732,4 @@ footer {
 /* Alternating background for sections to create visual "containers" */
 section:nth-of-type(even) {
   background: rgba(255, 255, 255, 0.015);
-}
-
-@media (max-width: 980px) {
-  .nav-desktop-btn {
-    display: none !important;
-  }
-
-  .nav-toggle-label {
-    display: flex !important;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  /* Show the button inside the menu on mobile */
-  .mobile-only-btn {
-    display: inline-flex !important;
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  .menu {
-    display: none;
-    /* ... rest of your existing menu styles ... */
-  }
 }
