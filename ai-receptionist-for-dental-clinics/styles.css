@@ -1,4 +1,4 @@
- :root {
+:root {
 
   --bg: #0b111b;
 
@@ -208,11 +208,11 @@ img {
 
 
 
-/* Remove !important from here so the mobile styles can turn it on later */
+/* Hide the mobile button on desktop by default */
 
 .mobile-only-btn {
 
-  display: none; 
+  display: none !important;
 
 }
 
@@ -1304,13 +1304,61 @@ footer {
 
 
 
-  /* ... keep your existing span/hamburger menu line code here ... */
+  .nav-toggle-label span,
+
+  .nav-toggle-label span::before,
+
+  .nav-toggle-label span::after {
+
+    display: block;
+
+    background: var(--gold);
+
+    height: 2px;
+
+    width: 24px;
+
+    border-radius: 2px;
+
+    position: relative;
+
+    transition: all .3s ease;
+
+  }
+
+
+
+  .nav-toggle-label span::before,
+
+  .nav-toggle-label span::after {
+
+    content: "";
+
+    position: absolute;
+
+  }
+
+
+
+  .nav-toggle-label span::before {
+
+    bottom: 8px;
+
+  }
+
+
+
+  .nav-toggle-label span::after {
+
+    top: 8px;
+
+  }
 
 
 
   .menu {
 
-    display: none !important; /* This stays hidden until checked */
+    display: none !important;
 
     position: absolute;
 
@@ -1336,11 +1384,37 @@ footer {
 
 
 
-  /* This is the magic line that shows the menu when you click the hamburger */
-
   #nav-toggle:checked ~ .menu {
 
     display: flex !important;
+
+  }
+
+
+
+  #nav-toggle:checked ~ .nav-toggle-label span {
+
+    background: transparent;
+
+  }
+
+
+
+  #nav-toggle:checked ~ .nav-toggle-label span::before {
+
+    transform: rotate(45deg);
+
+    bottom: 0;
+
+  }
+
+
+
+  #nav-toggle:checked ~ .nav-toggle-label span::after {
+
+    transform: rotate(-45deg);
+
+    top: 0;
 
   }
 
@@ -1360,27 +1434,17 @@ footer {
 
 
 
-  /* SHOWS THE BUTTON INSIDE THE MENU */
-
   .mobile-only-btn {
 
     display: inline-flex !important;
 
     margin-top: 10px;
 
-    color: #1c2433 !important; /* Ensures text is dark on gold button */
+    color: #0b111b !important;
 
     background: var(--gold) !important;
 
-    width: 100%;
-
   }
-
-
-
-  /* ... keep the rest of your grid/card responsive code ... */
-
-}
 
 
 
@@ -1465,5 +1529,53 @@ footer {
 section:nth-of-type(even) {
 
   background: rgba(255, 255, 255, 0.015);
+
+}
+
+
+
+@media (max-width: 980px) {
+
+  .nav-desktop-btn {
+
+    display: none !important;
+
+  }
+
+
+
+  .nav-toggle-label {
+
+    display: flex !important;
+
+    align-items: center;
+
+    cursor: pointer;
+
+  }
+
+
+
+  /* Show the button inside the menu on mobile */
+
+  .mobile-only-btn {
+
+    display: inline-flex !important;
+
+    margin-top: 10px;
+
+    width: 100%;
+
+  }
+
+  
+
+  .menu {
+
+    display: none;
+
+    /* ... rest of your existing menu styles ... */
+
+  }
 
 }
