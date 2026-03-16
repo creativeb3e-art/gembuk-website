@@ -103,9 +103,9 @@ img {
   display: none;
 }
 
-/* Hide the mobile button on desktop by default */
+/* Remove !important from here so the mobile styles can turn it on later */
 .mobile-only-btn {
-  display: none !important;
+  display: none; 
 }
 
 .nav-toggle-label {
