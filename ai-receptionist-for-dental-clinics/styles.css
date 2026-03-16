@@ -761,3 +761,31 @@ footer {
 section:nth-of-type(even) {
   background: rgba(255, 255, 255, 0.015);
 }
+
+/* Sticky Mobile Call Button */
+@media (max-width: 768px) {
+  .sticky-mobile-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .sticky-mobile-cta .btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    box-shadow: 0 10px 25px rgba(243, 200, 75, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Hide it on Desktop */
+@media (min-width: 769px) {
+  .sticky-mobile-cta {
+    display: none;
+  }
+}
