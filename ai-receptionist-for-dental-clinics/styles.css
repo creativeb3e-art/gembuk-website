@@ -722,20 +722,25 @@ section:nth-of-type(even) {
     border-radius: 0;
   }
 
-  .mobile-only-btn {
-    display: inline-flex !important;
-    margin-left: auto;
-    order: 2;
-    padding: 12px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    white-space: nowrap;
-    color: #0b111b !important;
-    background: linear-gradient(180deg, var(--gold), var(--gold-2)) !important;
-    border: 1px solid rgba(0, 0, 0, .08);
-    box-shadow: 0 14px 30px rgba(243, 200, 75, .18);
-    -webkit-text-fill-color: #0b111b !important;
-  }
+.mobile-only-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  order: 2;
+  min-height: 52px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  color: #0b111b !important;
+  background: linear-gradient(180deg, var(--gold), var(--gold-2)) !important;
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: 0 14px 30px rgba(243, 200, 75, .18);
+  -webkit-text-fill-color: #0b111b !important;
+}
 
   .grid-hero,
   .cards,
@@ -772,10 +777,5 @@ section:nth-of-type(even) {
 
   .amount {
     font-size: 40px;
-  }
-
-  .mobile-only-btn {
-    padding: 10px 14px;
-    font-size: 14px;
   }
 }
