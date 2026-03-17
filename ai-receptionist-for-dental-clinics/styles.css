@@ -57,9 +57,9 @@ img {
 .nav {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
   backdrop-filter: blur(10px);
-  background: rgba(11, 17, 27, .78);
+  background: rgba(11, 17, 27, .92);
   border-bottom: 1px solid var(--line);
   overflow: visible;
 }
@@ -646,15 +646,20 @@ section:nth-of-type(even) {
   .nav-desktop-btn {
     display: none !important;
   }
+  .nav-inner {
+  gap: 12px;
+}
 
-  .nav-toggle-label {
-    display: flex !important;
-    align-items: center;
-    cursor: pointer;
-    z-index: 100;
-    padding: 10px;
-    order: 3;
-  }
+.nav-toggle-label {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 10px;
+  order: 2;
+  flex: 0 0 auto;
+}
 
   .nav-toggle-label span,
   .nav-toggle-label span::before,
@@ -727,7 +732,8 @@ section:nth-of-type(even) {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  order: 2;
+  order: 3;
+  flex: 0 0 auto;
   min-height: 52px;
   padding: 12px 24px;
   border-radius: 999px;
