@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gembuk | Practical AI Systems</title>
+
+  <style>
+    :root{
+      --bg:#070c14;
+      --bg2:#0b1220;
+      --panel:#101a2b;
+      --panel2:#0d1626;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.52);
+      --line:rgba(255,255,255,.12);
+      --gold:#f3c84b;
+      --gold2:#ffe07a;
+      --max:1160px;
+      --radius:24px;
+      --shadow:0 30px 80px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(800px 500px at 75% 5%, rgba(243,200,75,.16), transparent 60%),
+        radial-gradient(900px 600px at 10% 10%, rgba(255,255,255,.06), transparent 65%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(18px);
+      background:rgba(7,12,20,.78);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-size:24px;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:16px 28px;
+      font-size:15px;
+      font-weight:800;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
+
+    .btn-primary{
+      background:linear-gradient(180deg,var(--gold2),var(--gold));
+      color:#121827;
+      border:none;
+      font-weight:900;
+      box-shadow:
+        0 16px 40px rgba(243,200,75,.22),
+        inset 0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .hero{
+      padding:78px 0 72px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:54px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .eyebrow:before{
+      content:"";
+      width:26px;
+      height:2px;
+      background:var(--gold);
+      border-radius:99px;
+    }
+
+    h1,h2,h3,p{margin-top:0}
+
+    h1{
+      font-size:clamp(46px,6vw,78px);
+      line-height:.98;
+      letter-spacing:-.06em;
+      margin-bottom:24px;
+    }
+
+    h2{
+      font-size:clamp(34px,4vw,54px);
+      line-height:1.04;
+      letter-spacing:-.05em;
+      margin-bottom:18px;
+    }
+
+    h3{
+      font-size:22px;
+      letter-spacing:-.03em;
+      margin-bottom:10px;
+    }
+
+    p{
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .lead{
+      font-size:21px;
+      max-width:680px;
+      color:rgba(255,255,255,.78);
+      margin-bottom:34px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:34px;
+    }
+
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      padding:9px 13px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .visual{
+      position:relative;
+      min-height:480px;
+      border-radius:36px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(243,200,75,.22), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .orbit{
+      position:absolute;
+      inset:45px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+    }
+
+    .orbit.two{inset:90px;opacity:.75}
+    .orbit.three{inset:135px;opacity:.5}
+
+    .core{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:150px;
+      height:150px;
+      border-radius:36px;
+      background:linear-gradient(180deg,var(--gold2),var(--gold));
+      color:#111827;
+      display:grid;
+      place-items:center;
+      font-weight:950;
+      font-size:28px;
+      box-shadow:0 0 80px rgba(243,200,75,.32);
+    }
+
+    .node{
+      position:absolute;
+      background:rgba(8,14,24,.92);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px 16px;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .node span{
+      display:block;
+      color:var(--soft);
+      font-size:12px;
+      font-weight:600;
+      margin-top:3px;
+    }
+
+    .n1{top:58px;left:58px}
+    .n2{top:90px;right:46px}
+    .n3{bottom:92px;left:42px}
+    .n4{bottom:64px;right:64px}
+
+    .section{
+      padding:82px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:54px;
+      align-items:start;
+    }
+
+    .issue-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:0 22px 55px rgba(0,0,0,.22);
+    }
+
+    .card p:last-child{margin-bottom:0}
+
+    .small-label{
+      color:var(--gold);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .service{
+      min-height:230px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:rgba(243,200,75,.14);
+      border:1px solid rgba(243,200,75,.28);
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      font-weight:950;
+      margin-bottom:22px;
+    }
+
+    .bands{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+
+    .band{
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .about-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .quote{
+      font-size:26px;
+      line-height:1.2;
+      letter-spacing:-.04em;
+      color:#fff;
+      font-weight:850;
+    }
+
+    .cta{
+      text-align:center;
+      padding:82px 0;
+    }
+
+    .cta-box{
+      max-width:860px;
+      margin:auto;
+      padding:54px;
+      border-radius:36px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(600px 260px at 50% 0%, rgba(243,200,75,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:38px 0;
+      color:var(--soft);
+      font-size:14px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .hero-grid,.split,.about-box{grid-template-columns:1fr}
+      .visual{min-height:380px}
+      .services{grid-template-columns:1fr}
+      .issue-grid{grid-template-columns:1fr}
+      .hero{padding:62px 0 64px}
+      .section{padding:68px 0}
+      .cta-box{padding:34px}
+      h1{font-size:48px}
+      .lead{font-size:19px}
+    }
+
+    @media(max-width:520px){
+      .container{width:calc(100% - 28px)}
+      .visual{min-height:330px}
+      .node{font-size:12px;padding:10px 12px}
+      .core{width:112px;height:112px;font-size:22px;border-radius:28px}
+      .n1{top:34px;left:22px}
+      .n2{top:72px;right:18px}
+      .n3{bottom:72px;left:18px}
+      .n4{bottom:34px;right:22px}
+      .actions{flex-direction:column;align-items:stretch}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">gembuk</a>
+    <nav class="navlinks">
+      <a href="#what">What is AI?</a>
+      <a href="#services">Services</a>
+      <a href="#who">Who we help</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="container hero-grid">
+    <section>
+      <div class="eyebrow">Practical AI systems</div>
+      <h1>Save time. Reduce workload. Operate smarter.</h1>
+      <p class="lead">
+        Gembuk designs AI agents, automations, and intelligent operating systems that help businesses remove operational friction and improve consistency.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+        <a class="btn" href="#services">Explore Services</a>
+      </div>
+
+      <div class="trust">
+        <span class="pill">AI Voice Agents</span>
+        <span class="pill">Workflow Automation</span>
+        <span class="pill">AIOS Systems</span>
+      </div>
+    </section>
+
+    <aside class="visual" aria-label="Gembuk AI system visual">
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="orbit three"></div>
+      <div class="core">AI</div>
+
+      <div class="node n1">Calls<span>answered + summarised</span></div>
+      <div class="node n2">Forms<span>classified + routed</span></div>
+      <div class="node n3">Systems<span>updated automatically</span></div>
+      <div class="node n4">Teams<span>supported with clarity</span></div>
+    </aside>
+  </div>
+</main>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">The problem</div>
+      <h2>Most businesses are losing time in hidden operational friction.</h2>
+      <p>
+        Missed calls, slow replies, manual admin, disconnected systems, duplicated work and information trapped in inboxes all create drag.
+      </p>
+      <p>
+        AI can help, but only when it is designed around the way your business actually works.
+      </p>
+    </div>
+
+    <div class="issue-grid">
+      <div class="card"><div class="small-label">01</div><h3>Missed revenue</h3><p>Calls and enquiries get missed when your team is busy or offline.</p></div>
+      <div class="card"><div class="small-label">02</div><h3>Manual admin</h3><p>Staff spend too much time copying, chasing, checking and updating.</p></div>
+      <div class="card"><div class="small-label">03</div><h3>Slow response</h3><p>Customers wait too long for simple answers, bookings or next steps.</p></div>
+      <div class="card"><div class="small-label">04</div><h3>Disconnected systems</h3><p>Information moves through too many tools with too much human effort.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="section">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">What AI actually is</div>
+      <h2>An intelligence layer for your business operations.</h2>
+    </div>
+
+    <div>
+      <p class="lead">
+        Artificial intelligence helps your business interpret information, follow rules, trigger actions and produce useful outputs faster than manual work.
+      </p>
+      <div class="issue-grid">
+        <div class="card"><h3>Understand</h3><p>Calls, messages, forms, documents and requests.</p></div>
+        <div class="card"><h3>Act</h3><p>Route work, update systems, prepare summaries and trigger workflows.</p></div>
+        <div class="card"><h3>Support</h3><p>Help your team work faster without losing control.</p></div>
+        <div class="card"><h3>Improve</h3><p>Create more consistent customer and internal experiences.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="card">
+      <div class="small-label">What AI is not</div>
+      <h2>It is not magic.</h2>
+      <p>
+        AI is not a shortcut for unclear processes, poor data, or vague business rules.
+      </p>
+      <p>
+        The strongest AI solutions are built with structure, governance, escalation points and clear human oversight.
+      </p>
+    </div>
+
+    <div>
+      <div class="eyebrow">Our approach</div>
+      <h2>Business problem first. AI solution second.</h2>
+      <p class="lead">
+        Gembuk starts by understanding where time, revenue or consistency is being lost. Then we design the practical AI system that fixes the problem.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <div class="eyebrow">Services</div>
+    <h2>Practical AI services for modern business operations.</h2>
+    <p class="lead">
+      Everything is designed to reduce workload, improve response speed and make your business easier to operate.
+    </p>
+
+    <div class="services">
+      <article class="card service">
+        <div>
+          <div class="icon">01</div>
+          <h3>AI Voice & Chat Agents</h3>
+          <p>Handle calls, website enquiries, after-hours support, bookings, summaries and repetitive customer interactions.</p>
+        </div>
+      </article>
+
+      <article class="card service">
+        <div>
+          <div class="icon">02</div>
+          <h3>AIOS Systems</h3>
+          <p>Internal AI operating systems designed around your workflows, knowledge, projects and team processes.</p>
+        </div>
+      </article>
+
+      <article class="card service">
+        <div>
+          <div class="icon">03</div>
+          <h3>Workflow Automation</h3>
+          <p>Connect systems, remove manual steps, automate approvals and turn messy inputs into structured outputs.</p>
+        </div>
+      </article>
+
+      <article class="card service">
+        <div>
+          <div class="icon">04</div>
+          <h3>Consulting & Advisory</h3>
+          <p>Identify where AI fits, what to prioritise, and how to adopt it safely and practically.</p>
+        </div>
+      </article>
+
+      <article class="card service">
+        <div>
+          <div class="icon">05</div>
+          <h3>Project Delivery</h3>
+          <p>Support AI and systems projects from discovery through to rollout, training and adoption.</p>
+        </div>
+      </article>
+
+      <article class="card service">
+        <div>
+          <div class="icon">06</div>
+          <h3>AI Opportunity Audit</h3>
+          <p>A practical review to identify quick wins, bottlenecks and the smartest first move for your business.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="section">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">Who we help</div>
+      <h2>Built for businesses where speed, consistency and service matter.</h2>
+      <p>
+        We focus on operational problems first, then design the right AI solution around them.
+      </p>
+    </div>
+
+    <div>
+      <div class="bands">
+        <span class="band">Healthcare & clinics</span>
+        <span class="band">Accommodation & tourism</span>
+        <span class="band">Local government</span>
+        <span class="band">Professional services</span>
+        <span class="band">Technology & MSPs</span>
+        <span class="band">Operations teams</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="eyebrow">About Gembuk</div>
+    <h2>Practical, grounded and built around real business outcomes.</h2>
+
+    <div class="about-box">
+      <div class="card">
+        <p class="quote">
+          We are not here to make AI sound complicated. We are here to make it useful.
+        </p>
+      </div>
+
+      <div class="card">
+        <p>
+          Gembuk helps businesses use artificial intelligence in a way that is clear, structured and connected to everyday operations.
+        </p>
+        <p>
+          The name Gembuk represents something grounded, distinctive and strong. That same idea guides our work: simple enough to use, smart enough to matter, and practical enough to become part of the business.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div class="eyebrow">Start with clarity</div>
+      <h2>Want to know where AI could save your business time?</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto;">
+        Book a free discovery call and we will talk through your current bottlenecks, possible quick wins and the most practical next step.
+      </p>
+      <a class="btn btn-primary" href="https://calendar.app.google/dyneumgPPPVPUh559">Book a Free Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <div class="brand">gembuk</div>
+      <div>Simple. Smart. AI-powered.</div>
+    </div>
+
+    <div>
+      <a href="mailto:hello@gembuk.com">hello@gembuk.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
